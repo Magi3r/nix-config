@@ -1,3 +1,4 @@
+{lib,...}:
 {
   catppuccin = {
     bat = {
@@ -78,13 +79,17 @@
 #       gg = "lazygit";
 #       ff = "fastfetch";
 #     };
+#
+#     initContent.initExtra = ''
+#       unsetopt mouse
+#     '';
 #   };
 
   # shell completion 
   programs.carapace = {
     enable = true;
     enableBashIntegration = true;
-    # enableZshIntegration = true;
+#     enableZshIntegration = true;
     enableFishIntegration = true;
   };
 
@@ -92,7 +97,7 @@
   programs.zoxide = {
     enable = true;
     enableBashIntegration = true;
-    # enableZshIntegration = true;
+#     enableZshIntegration = true;
     enableFishIntegration = true;
     options = [ "--cmd cd" ];
   };
@@ -102,7 +107,7 @@
     icons = "auto";
 
     enableBashIntegration = true;
-    # enableZshIntegration = true;
+#     enableZshIntegration = true;
     enableFishIntegration = true;
   };
 }

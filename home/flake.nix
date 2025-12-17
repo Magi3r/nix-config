@@ -39,6 +39,7 @@
             ./cosmic
             ./git
             ./gemini
+            ./gtk
             ./helix
             ./inlyne
             ./kitty

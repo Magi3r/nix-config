@@ -28,18 +28,18 @@
     # CLI tools # TODO: look into disabled options
     # android-tools
     bat
-    # bottom
+    bottom # task manager
     curl
-    # delta
+    delta # fancy diffs
     dust
-    # fd
-    # file
-    # fzf
+    fd
+    file
+    fzf
     git
     # k3s
     # lazygit
     # miniserve
-    # procs
+    procs # ps
     # ripgrep
     # rsync
     # sd

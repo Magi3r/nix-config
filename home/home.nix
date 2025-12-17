@@ -69,10 +69,11 @@
   #
   home.sessionVariables = {
     # EDITOR = "emacs";
+    EDITOR = "hx";
     TERMINAL = "kitty";
     XDG_TERMINAL_EMULATOR = "kitty";
 
-        NIXOS_OZONE_WL = "1"; # Hint electron apps to use wayland
+    NIXOS_OZONE_WL = "1"; # Hint electron apps to use wayland
     ELECTRON_OZONE_PLATFORM_HINT = "auto";
 
     XDG_SESSION_TYPE = "wayland";
@@ -95,4 +96,5 @@
   #   "video/*" = [ "com.system76.CosmicPlayer.desktop" ];
   #   "text/markdown" = [ "inlyne.desktop" ];
   # };
+
 }

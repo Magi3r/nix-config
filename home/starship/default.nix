@@ -2,7 +2,7 @@
   programs.starship = {
     enable = true;
     enableBashIntegration = true;
-    # enableZshIntegration = true;
+#     enableZshIntegration = true;
     enableFishIntegration = true;
     settings = {
       palette = "catppuccin_mocha";
