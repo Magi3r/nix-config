@@ -48,7 +48,7 @@
     unzip
     webwormhole
     wget
-    yt-dlp
+    # yt-dlp
 
     # networking
     dnsutils # dig
@@ -77,7 +77,7 @@
     # libreoffice
     # protonvpn-gui
     # qbittorrent
-    gimp
+    # gimp
     # godot
 
     # Gaming

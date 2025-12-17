@@ -143,6 +143,12 @@
     };
   };
 
+  # Wallpapers
+  home.file."Pictures/wallpapers" = {
+    source = ../../wallpapers;
+    recursive = true;
+  };
+
   # Below entries are only for sake of customizing desktop icons because most of icon pack do not provide cosmic icons
   # Multiple desktop entries won't cause any problem; Launchers will pick these over default desktop entries
   xdg.desktopEntries."com.system76.CosmicSettings" = {
@@ -292,5 +298,4 @@
       "x-scheme-handler/icyx"
     ];
   };
-
 }
