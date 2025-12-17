@@ -37,14 +37,16 @@
     fzf
     git
     # k3s
-    # lazygit
+    lazygit
     # miniserve
     procs # ps
-    # ripgrep
+    ripgrep
     # rsync
     # sd
     # tokei
+    tldr
     unzip
+    webwormhole
     wget
     yt-dlp
 
@@ -68,7 +70,7 @@
     # sysstat
     usbutils # lsusb
     brightnessctl
-    # wl-clipboard
+    wl-clipboard
     # pass
 
     # GUI
@@ -98,7 +100,6 @@
     ];
   };
 
-
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -106,6 +107,5 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-
 
 }
