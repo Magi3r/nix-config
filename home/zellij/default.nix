@@ -88,6 +88,44 @@
   #     autoload -Uz add-zsh-hook
   #     add-zsh-hook chpwd zellij_tab_name_update'';
 
+  programs.fish = {
+    functions = {
+      zellij_tab_name_update = {
+        body = ''
+          if test -n $ZELLIJ
+            set current_dir $PWD
+            switch $current_dir
+              case $HOME
+                set current_dir " "
+              case "$HOME/Downloads"
+                set current_dir " "
+              case "$HOME/Music"
+                set current_dir " "
+              case "$HOME/Pictures"
+                set current_dir " "
+              case "$HOME/Videos"
+                set current_dir " "
+              case "$HOME/Documents"
+                set current_dir " "
+              case "$HOME/Documents/code"
+                set current_dir " "
+              case "$HOME/Documents/code/dotfiles"
+                set current_dir "󱄅 "
+              case '*'
+                set current_dir (basename $current_dir)
+            end
+            # Rename the zellij tab
+            command nohup zellij action rename-tab "$current_dir" >/dev/null 2>&1 &
+          end
+        '';
+        onEvent = "fish_prompt";
+      };
+    };
+    shellInit = lib.mkAfter ''
+      zellij_tab_name_update
+    '';
+  };
+
   home.packages = with pkgs;
     [
       (writeShellScriptBin "llm" ''
