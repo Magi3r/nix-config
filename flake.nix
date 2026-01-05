@@ -25,7 +25,8 @@
         };
         server = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
-          system = "x86_64-linux"; # FIXME replace with aarch64-linux when on arm
+          system =
+            "x86_64-linux"; # FIXME replace with aarch64-linux when on arm
           # > Our main nixos configuration file <
           modules = [ ./profiles/server.nix ];
         };
@@ -35,7 +36,16 @@
       # Available through 'home-manager --flake .#your-username@your-hostname'
       homeConfigurations = {
         # FIXME replace with your username@hostname
-        "wubbaboo@nixos" = home-manager.lib.homeManagerConfiguration {
+        "wubbaboo@desktop" = home-manager.lib.homeManagerConfiguration {
+          # Home-manager requires 'pkgs' instance
+          pkgs =
+            nixpkgs.legacyPackages.x86_64-linux; # FIXME replace x86_64-linux with your architecure
+          extraSpecialArgs = { inherit inputs; };
+          # > Our main home-manager configuration file <
+          modules = [ ./home/home.nix ];
+        };
+
+        "wubbaboo@server" = home-manager.lib.homeManagerConfiguration {
           # Home-manager requires 'pkgs' instance
           pkgs =
             nixpkgs.legacyPackages.x86_64-linux; # FIXME replace x86_64-linux with your architecure
