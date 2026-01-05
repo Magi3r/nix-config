@@ -28,11 +28,12 @@
     # CLI tools # TODO: look into disabled options
     # android-tools
     bat
+    btop
     bottom # task manager
     curl
     delta # fancy diffs
     dust
-    fd
+    fd # better find
     file
     fzf
     git
@@ -40,7 +41,7 @@
     lazygit
     # miniserve
     procs # ps
-    ripgrep
+    ripgrep # better grep
     # rsync
     # sd
     # tokei

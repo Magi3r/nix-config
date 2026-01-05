@@ -17,10 +17,17 @@
       # Available through 'nixos-rebuild --flake .#your-hostname'
       nixosConfigurations = {
         # FIXME replace with your hostname
-        nixos = nixpkgs.lib.nixosSystem {
+        desktop = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
+          system = "x86_64-linux";
           # > Our main nixos configuration file <
-          modules = [ ./system/configuration.nix ];
+          modules = [ ./profiles/desktop.nix ];
+        };
+        server = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; };
+          system = "x86_64-linux"; # FIXME replace with aarch64-linux when on arm
+          # > Our main nixos configuration file <
+          modules = [ ./profiles/server.nix ];
         };
       };
 

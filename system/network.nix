@@ -4,7 +4,6 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   networking = {
-    hostName = "nixos";
     networkmanager.enable = true;
     # wireless.enable = true;  # Enables wireless support via wpa_supplicant.
     firewall = {

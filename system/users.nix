@@ -7,9 +7,9 @@
       # You can set an initial password for your user.
       # If you do, you can skip setting a root password by passing '--no-root-passwd' to nixos-install.
       # Be sure to change it (using passwd) after rebooting!
-      initialPassword = "letmein";
+      # initialPassword = "letmein";
       # generated from mkpasswd
-      # hashedPassword = ""
+      hashedPassword = "$y$j9T$QwRD/qx4a5aw73JUxjgPi/$6qmr8YAhqSKDi4yzNdkjrsdBQ90W3gSjAosu0Nwsn94";
       isNormalUser = true;
       description = "Wubbaboo";
       # openssh.authorizedKeys.keys = [

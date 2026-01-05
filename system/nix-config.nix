@@ -5,6 +5,7 @@
   pkgs,
   ...
 }: {
+
   # Add the rest of your current configuration
 
   #########################################################
