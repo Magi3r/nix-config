@@ -29,7 +29,7 @@
     # android-tools
     bat
     btop
-    bottom # task manager
+    # bottom # task manager
     curl
     delta # fancy diffs
     dust

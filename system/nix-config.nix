@@ -34,6 +34,6 @@
   nix.gc = {
     automatic = true;
     dates = "weekly";        # or "daily"
-    options = "--delete-older-than 30d";
+    options = "--delete-older-than 7d";
   };
 }

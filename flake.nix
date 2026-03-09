@@ -23,6 +23,11 @@
           # > Our main nixos configuration file <
           modules = [ ./profiles/desktop.nix ];
         };
+        limgrave = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; };
+          system = "x86_64-linux";
+          modules = [ ./profiles/limgrave.nix ];
+        };
         server = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; };
           system =
@@ -42,7 +47,16 @@
             nixpkgs.legacyPackages.x86_64-linux; # FIXME replace x86_64-linux with your architecure
           extraSpecialArgs = { inherit inputs; };
           # > Our main home-manager configuration file <
-          modules = [ ./home/home.nix ];
+          modules = [ ./home/desktop/home.nix ];
+        };
+
+        "wubbaboo@limgrave" = home-manager.lib.homeManagerConfiguration {
+          # Home-manager requires 'pkgs' instance
+          pkgs =
+            nixpkgs.legacyPackages.x86_64-linux; # FIXME replace x86_64-linux with your architecure
+          extraSpecialArgs = { inherit inputs; };
+          # > Our main home-manager configuration file <
+          modules = [ ./home/laptop/home.nix ];
         };
 
         "wubbaboo@server" = home-manager.lib.homeManagerConfiguration {

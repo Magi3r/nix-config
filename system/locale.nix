@@ -1,4 +1,4 @@
-{
+{lib,...}:{
   time.timeZone = "Europe/Berlin";
 
   # Select internationalisation properties.
@@ -17,7 +17,5 @@
   };
 
   # Configure console keymap
-  console.keyMap = "de";
+  console.keyMap = lib.mkDefault "de";
 }
-
-
