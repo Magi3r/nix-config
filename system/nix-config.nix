@@ -4,19 +4,23 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
 
   # Add the rest of your current configuration
 
   #########################################################
 
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.limine.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   #########################################################
 
@@ -29,11 +33,10 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.11";
 
-
   # Purge old generations and unused packages from the system
   nix.gc = {
     automatic = true;
-    dates = "weekly";        # or "daily"
+    dates = "weekly"; # or "daily"
     options = "--delete-older-than 7d";
   };
 }

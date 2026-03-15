@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   imports = [ ./scripts.nix ];
 
   programs.helix = {
@@ -6,7 +7,8 @@
     defaultEditor = true;
 
     settings = {
-      theme = "catppuccin_mocha_transparent";
+      # theme = "catppuccin_mocha_transparent";
+      theme = "tokyonight_storm";
       editor = {
         # scrollPastEnd = true;
         text-width = 80;
@@ -22,7 +24,9 @@
         popup-border = "all";
         color-modes = true;
 
-        file-picker = { hidden = false; };
+        file-picker = {
+          hidden = false;
+        };
         bufferline = "multiple";
 
         cursor-shape = {

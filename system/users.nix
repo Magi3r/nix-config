@@ -9,7 +9,7 @@
       # Be sure to change it (using passwd) after rebooting!
       # initialPassword = "letmein";
       # generated from mkpasswd
-      hashedPassword = "$y$j9T$QwRD/qx4a5aw73JUxjgPi/$6qmr8YAhqSKDi4yzNdkjrsdBQ90W3gSjAosu0Nwsn94";
+      hashedPassword = "$y$j9T$axI5ncI6myGVqaMUzh3RW.$bAhI.rL0pWgXA1lgrpVohABTDekKAroqFoleZbaYkE0";
       isNormalUser = true;
       description = "Wubbaboo";
       # openssh.authorizedKeys.keys = [

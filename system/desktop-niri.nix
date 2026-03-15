@@ -1,9 +1,13 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
 
   services = {
     # login manager
     displayManager.defaultSession = "niri";
-    displayManager.sddm.enable = "true";
+    displayManager.gdm = {
+      enable = true;
+      wayland = true;
+    };
   };
   programs.niri.enable = true;
 
