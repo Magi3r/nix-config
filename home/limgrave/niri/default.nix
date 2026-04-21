@@ -13,7 +13,6 @@
 
   programs.noctalia-shell = {
     enable = true;
-    systemd.enable = true;
     # package = pkgs.noctalia-shell;
   };
 

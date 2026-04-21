@@ -9,46 +9,57 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     zen-browser = {
-          url = "github:youwen5/zen-browser-flake";
-          inputs.nixpkgs.follows = "nixpkgs";
-        };
+      url = "github:youwen5/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     noctalia.url = "github:noctalia-dev/noctalia-shell";
     noctalia.inputs.nixpkgs.follows = "nixpkgs";
     catppuccin.url = "github:catppuccin/nix";
   };
-
-  outputs = { nixpkgs, home-manager, catppuccin, ... }@inputs:
+  nixConfig = {
+    extra-substituters = [ "https://noctalia.cachix.org" ];
+    extra-trusted-public-keys = [
+      "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
+    ];
+  };
+  outputs =
+    {
+      nixpkgs,
+      home-manager,
+      catppuccin,
+      ...
+    }@inputs:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-    in {
-      homeConfigurations."wubbaboo" =
-        home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
+    in
+    {
+      homeConfigurations."wubbaboo" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
 
-          # Specify your home configuration modules here, for example,
-          # the path to your home.nix.
-          modules = [
-            ./home.nix
-            ./alacritty
-            ./discord
-            ./git
-            # ./gtk
-            ./helix
-            ./niri
-            # ./inlyne
-            # ./kitty
-            # ./rofi
-            ./shell
-            ./starship
-            # ./yazi
-            # ./zellij
-            catppuccin.homeModules.catppuccin
-          ];
+        # Specify your home configuration modules here, for example,
+        # the path to your home.nix.
+        modules = [
+          ./home.nix
+          ./alacritty
+          ./discord
+          ./git
+          # ./gtk
+          ./helix
+          ./niri
+          # ./inlyne
+          # ./kitty
+          # ./rofi
+          ./shell
+          ./starship
+          # ./yazi
+          # ./zellij
+          catppuccin.homeModules.catppuccin
+        ];
 
-          # Optionally use extraSpecialArgs
-          # to pass through arguments to home.nix
-          extraSpecialArgs = { inherit inputs; };
-        };
+        # Optionally use extraSpecialArgs
+        # to pass through arguments to home.nix
+        extraSpecialArgs = { inherit inputs; };
+      };
     };
 }

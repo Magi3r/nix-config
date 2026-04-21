@@ -1,5 +1,11 @@
 # TODO add descriptive comments
-{ pkgs, inputs, lib, ... }: {
+{
+  pkgs,
+  inputs,
+  lib,
+  ...
+}:
+{
   # You can import other NixOS modules here
   imports = [
     # If you want to use modules from other flakes (such as nixos-hardware):
@@ -16,9 +22,15 @@
 
     ../system/desktop-niri.nix
     ../system/services.nix
+    ../system/services/tailscale.nix
     # ../system/virtualisation.nix
   ];
 
+  hardware.sane.enable = true;
+  users.users.wubbaboo.extraGroups = [
+    "scanner"
+    "lp"
+  ];
 
   console.keyMap = lib.mkForce "us";
 

@@ -7,6 +7,8 @@
 }:
 {
 
+  nixpkgs.config.allowUnfree = true;
+
   # Add the rest of your current configuration
 
   #########################################################
