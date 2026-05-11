@@ -41,7 +41,7 @@
           package = pkgs.noctalia-shell;
         };
         xdg.configFile."noctalia/config.json".source = ../assets/config/noctalia/settings.json;
-        home.file."Pictures/Wallpapers/tokyo_night-04.png".source = ../assets/wallpapers/tokyo_night-04.png;
+        home.file."Pictures/Wallpapers/tokyo_night-05.png".source = ../assets/wallpapers/tokyo_night-05.png;
         home.file.".face".source = ../assets/profile-pic.png;
       };
     };
