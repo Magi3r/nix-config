@@ -4,43 +4,40 @@
   config,
   pkgs,
   ...
-}:
-{
+}: {
   den.aspects.nix = {
     nixos = {
+      nixpkgs.config.allowUnfree = true;
 
-  nixpkgs.config.allowUnfree = true;
+      # Add the rest of your current configuration
 
-  # Add the rest of your current configuration
+      #########################################################
 
-  #########################################################
+      # Enable touchpad support (enabled default in most desktopManager).
+      # services.xserver.libinput.enable = true;
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
+      nix.settings.experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
 
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
+      #########################################################
 
-  #########################################################
+      # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
+      # This value determines the NixOS release from which the default
+      # settings for stateful data, like file locations and database versions
+      # on your system were taken. It‘s perfectly fine and recommended to leave
+      # this value at the release version of the first install of this system.
+      # Before changing this value read the documentation for this option
+      # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+      system.stateVersion = "25.11";
 
-  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "25.11";
-
-  # Purge old generations and unused packages from the system
-  nix.gc = {
-    automatic = true;
-    dates = "weekly"; # or "daily"
-    options = "--delete-older-than 7d";
-  };
-
+      # Purge old generations and unused packages from the system
+      nix.gc = {
+        automatic = true;
+        dates = "weekly"; # or "daily"
+        options = "--delete-older-than 7d";
+      };
     };
   };
 }

@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "wubbaboo";
@@ -86,7 +88,6 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-
   # default set in individiual configs
 
   # xdg.mimeApps.defaultApplications = {
@@ -96,5 +97,4 @@
   #   "video/*" = [ "com.system76.CosmicPlayer.desktop" ];
   #   "text/markdown" = [ "inlyne.desktop" ];
   # };
-
 }

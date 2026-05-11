@@ -6,9 +6,9 @@
   # user aspect
   den.aspects.wubbaboo = {
     includes = [
-      den.provides.define-user
-      den.provides.primary-user
-      (den.provides.user-shell "fish")
+      den.batteries.define-user
+      den.batteries.primary-user
+      (den.batteries.user-shell "fish")
       <git>
       <shell>
       <discord>

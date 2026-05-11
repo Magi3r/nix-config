@@ -20,40 +20,43 @@
       flake = false;
     };
 
-    zjstatus = { url = "github:dj95/zjstatus"; };
+    zjstatus = {url = "github:dj95/zjstatus";};
   };
 
-  outputs = { nixpkgs, home-manager, catppuccin, ... }@inputs:
-    let
-      system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system};
-    in {
-      homeConfigurations."wubbaboo" =
-        home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
+  outputs = {
+    nixpkgs,
+    home-manager,
+    catppuccin,
+    ...
+  } @ inputs: let
+    system = "x86_64-linux";
+    pkgs = nixpkgs.legacyPackages.${system};
+  in {
+    homeConfigurations."wubbaboo" = home-manager.lib.homeManagerConfiguration {
+      inherit pkgs;
 
-          # Specify your home configuration modules here, for example,
-          # the path to your home.nix.
-          modules = [
-            ./home.nix
-            ./cosmic
-            ./git
-            ./gemini
-            ./gtk
-            ./helix
-            ./inlyne
-            ./kitty
-            ./rofi
-            ./shell
-            ./starship
-            ./yazi
-            ./zellij
-            catppuccin.homeModules.catppuccin
-          ];
+      # Specify your home configuration modules here, for example,
+      # the path to your home.nix.
+      modules = [
+        ./home.nix
+        ./cosmic
+        ./git
+        ./gemini
+        ./gtk
+        ./helix
+        ./inlyne
+        ./kitty
+        ./rofi
+        ./shell
+        ./starship
+        ./yazi
+        ./zellij
+        catppuccin.homeModules.catppuccin
+      ];
 
-          # Optionally use extraSpecialArgs
-          # to pass through arguments to home.nix
-          extraSpecialArgs = { inherit inputs; };
-        };
+      # Optionally use extraSpecialArgs
+      # to pass through arguments to home.nix
+      extraSpecialArgs = {inherit inputs;};
     };
+  };
 }

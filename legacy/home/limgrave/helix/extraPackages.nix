@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-
+{pkgs, ...}:
 # Binaries for all the Language Servers, Linters and Formatters
 with pkgs; [
   lldb

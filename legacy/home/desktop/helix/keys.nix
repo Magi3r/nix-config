@@ -1,6 +1,6 @@
 {
   normal = {
-    esc = [ "collapse_selection" "keep_primary_selection" ];
+    esc = ["collapse_selection" "keep_primary_selection"];
     "{" = "goto_prev_paragraph";
     "}" = "goto_next_paragraph";
     H = "goto_previous_buffer";
@@ -14,7 +14,7 @@
 
       # yazi-picker script defined in ./scripts.nix
       space = [
-        # using %% to escape 
+        # using %% to escape
         ''
           :sh zellij run -n "" -c -f -x 10%% -y 10%% --width 80%% --height 80%% -- yazi-picker open %{buffer_name}''
         ":redraw"
@@ -99,5 +99,5 @@
     m.w = "select_all";
   };
 
-  insert = { C-space = "completion"; };
+  insert = {C-space = "completion";};
 }

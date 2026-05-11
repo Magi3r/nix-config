@@ -1,5 +1,5 @@
-{ pkgs, ... }: {
-  imports = [ ./scripts.nix ];
+{pkgs, ...}: {
+  imports = [./scripts.nix];
 
   programs.helix = {
     enable = true;
@@ -22,7 +22,7 @@
         popup-border = "all";
         color-modes = true;
 
-        file-picker = { hidden = false; };
+        file-picker = {hidden = false;};
         bufferline = "multiple";
 
         cursor-shape = {
@@ -40,7 +40,7 @@
             "read-only-indicator"
             "file-modification-indicator"
           ];
-          center = [ ];
+          center = [];
           right = [
             "register"
             "file-type"
@@ -67,11 +67,11 @@
       keys = import ./keys.nix;
     };
 
-    languages = import ./language.nix { inherit pkgs; };
+    languages = import ./language.nix {inherit pkgs;};
 
     themes = import ./theme.nix;
 
-    extraPackages = import ./extraPackages.nix { inherit pkgs; };
+    extraPackages = import ./extraPackages.nix {inherit pkgs;};
   };
 
   # too short for moving to individual module

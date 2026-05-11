@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   # programs.hyprland = {
   #   enable = true;
   #   xwayland.enable = true;
@@ -27,7 +27,6 @@
 
   # enables brightness controll for external monitor using ddcutil
   hardware.i2c.enable = true;
-
 
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = false;

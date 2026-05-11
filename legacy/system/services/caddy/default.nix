@@ -1,11 +1,15 @@
-{ config, lib, pkgs, ... }:
-let
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
   vhosts = config.my.caddy.virtualHosts;
-  hasVHosts = vhosts != { };
+  hasVHosts = vhosts != {};
 in {
   options.my.caddy.virtualHosts = lib.mkOption {
     type = lib.types.attrsOf lib.types.str;
-    default = { };
+    default = {};
     description = "Map of hostname -> reverse proxy target";
   };
 
@@ -21,12 +25,13 @@ in {
         };
       };
 
-      virtualHosts = lib.mapAttrs (_host: upstream: {
-        extraConfig = ''
-          reverse_proxy ${upstream}
-        '';
-      }) vhosts;
+      virtualHosts =
+        lib.mapAttrs (_host: upstream: {
+          extraConfig = ''
+            reverse_proxy ${upstream}
+          '';
+        })
+        vhosts;
     };
-
   };
 }

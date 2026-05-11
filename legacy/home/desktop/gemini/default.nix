@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   home.file.".gemini/settings.json".text = builtins.toJSON {
     ui = {
       hideTips = true;
@@ -15,7 +15,7 @@
       };
     };
 
-    context = { includeDirectories = [ "~/.gemini" ]; };
+    context = {includeDirectories = ["~/.gemini"];};
 
     general = {
       preferredEditor = "hx";
@@ -25,10 +25,10 @@
       enablePromptCompletion = true;
     };
 
-    security = { auth = { selectedType = "oauth-personal"; }; };
+    security = {auth = {selectedType = "oauth-personal";};};
 
-    privacy = { usageStatisticsEnabled = false; };
+    privacy = {usageStatisticsEnabled = false;};
   };
 
-  home.packages = with pkgs; [ gemini-cli ];
+  home.packages = with pkgs; [gemini-cli];
 }

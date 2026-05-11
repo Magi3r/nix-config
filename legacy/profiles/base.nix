@@ -1,9 +1,5 @@
 # TODO add descriptive comments
-{
-  pkgs,
-  ...
-}:
-{
+{pkgs, ...}: {
   imports = [
     ../system/locale.nix
     ../system/programs.nix

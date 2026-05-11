@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "wubbaboo";
@@ -96,5 +98,4 @@
   #   "video/*" = [ "com.system76.CosmicPlayer.desktop" ];
   #   "text/markdown" = [ "inlyne.desktop" ];
   # };
-
 }

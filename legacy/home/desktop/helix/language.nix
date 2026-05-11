@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-let
+{pkgs, ...}: let
   # this is just a funtion with parser as argument
   prettierFormatter = parser: {
     command = "prettier";
@@ -15,7 +14,6 @@ let
       "--print-width=80"
     ];
   };
-
 in {
   # all the LSP and formatter binaries/packages are defined in ./extraPackages.nix
   language-server = {
@@ -48,13 +46,13 @@ in {
 
     ty-lsp = {
       command = "ty";
-      args = [ "server" ];
+      args = ["server"];
     };
 
     tinymist-lsp = {
       command = "tinymist";
       config = {
-        typstExtraArgs = [ "main.typ" ];
+        typstExtraArgs = ["main.typ"];
         exportPdf = "onType";
         outputPath = "$root/target/$dir/$name";
 
@@ -64,14 +62,13 @@ in {
         };
 
         preview.background.enabled = true;
-        preview.background.args =
-          [ "--data-plane-host=127.0.0.1:8080" "--invert-colors=auto" ];
+        preview.background.args = ["--data-plane-host=127.0.0.1:8080" "--invert-colors=auto"];
       };
     };
 
     ruff-lsp = {
       command = "ruff";
-      agrs = [ "server" ];
+      agrs = ["server"];
     };
 
     # svelte-ls = {
@@ -90,25 +87,24 @@ in {
     #       };
     #     };
     #   };
-    };
+  };
 
   language = [
-
     {
       name = "rust";
       scope = "source.rust";
-      file-types = [ "rs" ];
+      file-types = ["rs"];
       auto-format = true;
       formatter = {
         command = "rustfmt";
-        args = [ "--edition" "2024" ];
+        args = ["--edition" "2024"];
       };
     }
 
     {
       name = "c";
       scope = "source.c";
-      file-types = [ "c" "h" ];
+      file-types = ["c" "h"];
       auto-format = true;
       formatter = {
         command = "clang-format";
@@ -124,7 +120,7 @@ in {
     {
       name = "cpp";
       scope = "source.cpp";
-      file-types = [ "cpp" "hpp" "cc" "cxx" "hh" "h" ];
+      file-types = ["cpp" "hpp" "cc" "cxx" "hh" "h"];
       auto-format = true;
       formatter = {
         command = "clang-format";
@@ -140,23 +136,23 @@ in {
     {
       name = "nix";
       scope = "source.nix";
-      file-types = [ "nix" ];
+      file-types = ["nix"];
       auto-format = true;
       formatter = {
         command = "nixfmt";
-        args = [ ];
+        args = [];
       };
     }
 
     {
       name = "lua";
       scope = "source.lua";
-      roots = [ ".git" "stylua.toml" ];
-      file-types = [ "lua" ];
+      roots = [".git" "stylua.toml"];
+      file-types = ["lua"];
       auto-format = true;
       formatter = {
         command = "stylua";
-        args = [ "-" ];
+        args = ["-"];
       };
     }
 
@@ -181,18 +177,18 @@ in {
         "cpy"
         "ipy"
         "pyt"
-        { glob = ".python_history"; }
-        { glob = ".pythonstartup"; }
-        { glob = ".pythonrc"; }
-        { glob = "SConstruct"; }
-        { glob = "SConscript"; }
+        {glob = ".python_history";}
+        {glob = ".pythonstartup";}
+        {glob = ".pythonrc";}
+        {glob = "SConstruct";}
+        {glob = "SConscript";}
       ];
       auto-format = true;
       formatter = {
         command = "ruff";
-        args = [ "format" "-" ];
+        args = ["format" "-"];
       };
-      language-servers = [ "ty-lsp" "ruff-lsp" ];
+      language-servers = ["ty-lsp" "ruff-lsp"];
     }
 
     {
@@ -201,95 +197,93 @@ in {
       file-types = [
         "config"
         "sh"
-        { glob = ".zshrc"; }
-        { glob = ".bash_login"; }
-        { glob = ".bash_logout"; }
-        { glob = ".bash_profile"; }
-        { glob = ".bashrc"; }
-        { glob = ".profile"; }
-        { glob = ".zshenv"; }
-        { glob = ".zlogin"; }
-        { glob = ".zlogout"; }
-        { glob = ".zprofile"; }
-        { glob = ".zshrc"; }
-        { glob = "APKBUILD"; }
-        { glob = "PKGBUILD"; }
-        { glob = "eclass"; }
-        { glob = "ebuild"; }
-        { glob = "bazelrc"; }
-        { glob = ".bash_aliases"; }
+        {glob = ".zshrc";}
+        {glob = ".bash_login";}
+        {glob = ".bash_logout";}
+        {glob = ".bash_profile";}
+        {glob = ".bashrc";}
+        {glob = ".profile";}
+        {glob = ".zshenv";}
+        {glob = ".zlogin";}
+        {glob = ".zlogout";}
+        {glob = ".zprofile";}
+        {glob = ".zshrc";}
+        {glob = "APKBUILD";}
+        {glob = "PKGBUILD";}
+        {glob = "eclass";}
+        {glob = "ebuild";}
+        {glob = "bazelrc";}
+        {glob = ".bash_aliases";}
       ];
       auto-format = true;
       formatter = {
         command = "shfmt";
-        args = [ "-filename" "\${INPUT}" "-i" "4" "-ci" "-sr" ];
+        args = ["-filename" "\${INPUT}" "-i" "4" "-ci" "-sr"];
       };
-      language-servers = [ "bash-language-server" ];
+      language-servers = ["bash-language-server"];
     }
 
     {
       name = "dockerfile";
       scope = "source.dockerfile";
-      file-types = [ "Dockerfile" { glob = "Dockerfile"; } ];
+      file-types = ["Dockerfile" {glob = "Dockerfile";}];
       auto-format = true;
       formatter = {
         command = "dockfmt";
-        args = [ "fmt" ];
+        args = ["fmt"];
       };
-      language-servers = [ "docker-langserver" ];
+      language-servers = ["docker-langserver"];
     }
 
     {
       name = "docker-compose";
       scope = "source.yaml.docker-compose";
-      file-types = [ "docker-compose.yml" "docker-compose.yaml" ];
+      file-types = ["docker-compose.yml" "docker-compose.yaml"];
       auto-format = true;
       formatter = prettierFormatter "yaml";
-      language-servers = [ "docker-compose-ls" ];
+      language-servers = ["docker-compose-ls"];
     }
 
     {
       name = "javascript";
       scope = "source.js";
-      file-types = [ "js" ];
+      file-types = ["js"];
       auto-format = true;
       formatter = prettierFormatter "babel";
-      language-servers = [ "typescript-language-server" "tailwind-ls" ];
+      language-servers = ["typescript-language-server" "tailwind-ls"];
     }
 
     {
       name = "typescript";
       scope = "source.ts";
-      file-types = [ "ts" ];
+      file-types = ["ts"];
       auto-format = true;
       formatter = prettierFormatter "typescript";
-      language-servers = [ "typescript-language-server" "tailwind-ls" ];
+      language-servers = ["typescript-language-server" "tailwind-ls"];
     }
 
     {
       name = "jsx";
       scope = "source.jsx";
-      file-types = [ "jsx" ];
+      file-types = ["jsx"];
       auto-format = true;
       formatter = prettierFormatter "babel";
-      language-servers =
-        [ "typescript-language-server" "emmet-ls" "tailwind-ls" ];
+      language-servers = ["typescript-language-server" "emmet-ls" "tailwind-ls"];
     }
 
     {
       name = "tsx";
       scope = "source.tsx";
-      file-types = [ "tsx" ];
+      file-types = ["tsx"];
       auto-format = true;
       formatter = prettierFormatter "typescript";
-      language-servers =
-        [ "typescript-language-server" "emmet-ls" "tailwind-ls" ];
+      language-servers = ["typescript-language-server" "emmet-ls" "tailwind-ls"];
     }
 
     {
       name = "json";
       scope = "source.json";
-      file-types = [ "json" ];
+      file-types = ["json"];
       auto-format = true;
       formatter = prettierFormatter "json";
     }
@@ -297,16 +291,16 @@ in {
     {
       name = "yaml";
       scope = "source.yaml";
-      file-types = [ "yaml" "yml" ];
+      file-types = ["yaml" "yml"];
       auto-format = true;
       formatter = prettierFormatter "yaml";
-      language-servers = [ "yaml-language-server" ];
+      language-servers = ["yaml-language-server"];
     }
 
     {
       name = "markdown";
       scope = "source.md";
-      file-types = [ "md" "markdown" ];
+      file-types = ["md" "markdown"];
       auto-format = true;
       formatter = prettierFormatter "markdown";
     }
@@ -314,71 +308,69 @@ in {
     {
       name = "html";
       scope = "text.html.basic";
-      file-types = [ "html" ];
+      file-types = ["html"];
       auto-format = true;
       formatter = prettierFormatter "html";
-      language-servers = [ "emmet-ls" "tailwind-ls" ];
+      language-servers = ["emmet-ls" "tailwind-ls"];
     }
 
     {
       name = "css";
       scope = "source.css";
-      file-types = [ "css" ];
+      file-types = ["css"];
       auto-format = true;
       formatter = prettierFormatter "css";
-      language-servers =
-        [ "vscode-css-language-server" "emmet-ls" "tailwind-ls" ];
+      language-servers = ["vscode-css-language-server" "emmet-ls" "tailwind-ls"];
     }
 
     {
       name = "scss";
       scope = "source.scss";
-      file-types = [ "scss" "rasi" ];
+      file-types = ["scss" "rasi"];
       auto-format = true;
       formatter = prettierFormatter "scss";
-      language-servers =
-        [ "vscode-css-language-server" "emmet-ls" "tailwind-ls" ];
+      language-servers = ["vscode-css-language-server" "emmet-ls" "tailwind-ls"];
     }
 
     {
       name = "svelte";
       scope = "source.svelte";
-      file-types = [ "svelte" ];
+      file-types = ["svelte"];
       auto-format = true;
       formatter = prettierFormatter "svelte";
-      language-servers = [ "svelte-ls" "emmet-ls" "tailwind-ls" ];
+      language-servers = ["svelte-ls" "emmet-ls" "tailwind-ls"];
     }
 
     {
       name = "toml";
       scope = "source.toml";
-      file-types = [ "toml" ];
+      file-types = ["toml"];
       auto-format = true;
       formatter = {
         command = "taplo";
-        args = [ "fmt" "-" ];
+        args = ["fmt" "-"];
       };
-      language-servers = [ "taplo" ];
+      language-servers = ["taplo"];
     }
 
     {
       name = "powershell";
       scope = "source.ps1";
-      roots = [ ".git" ];
+      roots = [".git"];
       comment-token = "#";
       indent = {
         tab-width = 4;
         unit = " ";
       };
-      language-servers = [ "powershell-ls" ];
+      language-servers = ["powershell-ls"];
     }
 
     {
       name = "typst";
       scope = "source.typst";
-      file-types = [ "typ" "typst" ];
-      language-servers = [ "tinymist-lsp" ];
-      formatter = { command = "typstyle"; };
+      file-types = ["typ" "typst"];
+      language-servers = ["tinymist-lsp"];
+      formatter = {command = "typstyle";};
       auto-format = true;
     }
   ];

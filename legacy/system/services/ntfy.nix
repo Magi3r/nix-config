@@ -1,7 +1,11 @@
-{ config, lib, pkgs, ... }:
-let cfg = config.my.ntfy;
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  cfg = config.my.ntfy;
 in {
-
   options.my.ntfy = {
     enable = lib.mkEnableOption "ntfy";
 
@@ -30,13 +34,17 @@ in {
     proxyPass = "http://localhost:${toString cfg.port}";
   };
 
-  my.homepage.services = [{
-    "Services" = [{
-      "ntfy" = {
-        description = "Push-Notifications";
-        href = "https://${cfg.url}";
-        icon = "ntfy.png";
-      };
-    }];
-  }];
+  my.homepage.services = [
+    {
+      "Services" = [
+        {
+          "ntfy" = {
+            description = "Push-Notifications";
+            href = "https://${cfg.url}";
+            icon = "ntfy.png";
+          };
+        }
+      ];
+    }
+  ];
 }

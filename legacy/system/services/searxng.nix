@@ -1,7 +1,11 @@
-{ config, lib, pkgs, ... }:
-let cfg = config.my.searxng;
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  cfg = config.my.searxng;
 in {
-
   options.my.searxng = {
     enable = lib.mkEnableOption "SearXNG";
 
@@ -30,13 +34,17 @@ in {
     proxyPass = "http://localhost:${toString cfg.port}";
   };
 
-  my.homepage.services = [{
-    "Services" = [{
-      "SearXNG" = {
-        description = "Metasearchengine";
-        href = "https://${cfg.url}";
-        icon = "searxng.png";
-      };
-    }];
-  }];
+  my.homepage.services = [
+    {
+      "Services" = [
+        {
+          "SearXNG" = {
+            description = "Metasearchengine";
+            href = "https://${cfg.url}";
+            icon = "searxng.png";
+          };
+        }
+      ];
+    }
+  ];
 }

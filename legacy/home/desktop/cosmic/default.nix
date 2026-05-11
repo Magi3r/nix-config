@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   home.packages = with pkgs; [
     tela-circle-icon-theme
 
@@ -7,12 +7,12 @@
         pkill -x rofi
         exit
       fi
-      rofi -show drun -show-icons 
+      rofi -show drun -show-icons
     '')
   ];
 
   xdg.mimeApps.defaultApplications = {
-    "video/*" = [ "com.system76.CosmicPlayer.desktop" ];
+    "video/*" = ["com.system76.CosmicPlayer.desktop"];
   };
 
   home.file = {
@@ -80,7 +80,7 @@
       force = true;
     };
 
-    # panel applet positions, style,and animations 
+    # panel applet positions, style,and animations
     ".config/cosmic/com.system76.CosmicPanel.Panel" = {
       enable = true;
       source = ./com.system76.CosmicPanel.Panel;
@@ -158,9 +158,8 @@
     exec = "cosmic-settings";
     terminal = false;
     type = "Application";
-    icon =
-      "${pkgs.tela-circle-icon-theme}/share/icons/Tela-circle/scalable/apps/preferences-system.svg";
-    categories = [ "COSMIC" ];
+    icon = "${pkgs.tela-circle-icon-theme}/share/icons/Tela-circle/scalable/apps/preferences-system.svg";
+    categories = ["COSMIC"];
     startupNotify = true;
   };
 
@@ -171,11 +170,10 @@
     exec = "cosmic-files %U";
     terminal = false;
     type = "Application";
-    icon =
-      "${pkgs.tela-circle-icon-theme}/share/icons/Tela-circle/scalable/apps/file-manager.svg";
-    categories = [ "COSMIC" "Utility" "FileManager" ];
+    icon = "${pkgs.tela-circle-icon-theme}/share/icons/Tela-circle/scalable/apps/file-manager.svg";
+    categories = ["COSMIC" "Utility" "FileManager"];
     startupNotify = true;
-    mimeType = [ "inode/directory" ];
+    mimeType = ["inode/directory"];
   };
 
   xdg.desktopEntries."com.system76.CosmicWorkspaces" = {
@@ -185,9 +183,8 @@
     exec = "cosmic-workspaces";
     terminal = false;
     type = "Application";
-    icon =
-      "${pkgs.tela-circle-icon-theme}/share/icons/Tela-circle/scalable/apps/pop-cosmic-workspaces.svg";
-    categories = [ "COSMIC" ];
+    icon = "${pkgs.tela-circle-icon-theme}/share/icons/Tela-circle/scalable/apps/pop-cosmic-workspaces.svg";
+    categories = ["COSMIC"];
     startupNotify = true;
     noDisplay = true;
   };
@@ -199,11 +196,10 @@
     exec = "cosmic-ext-calculator %F";
     terminal = false;
     type = "Application";
-    icon =
-      "${pkgs.tela-circle-icon-theme}/share/icons/Tela-circle/scalable/apps/calc.svg";
-    categories = [ "COSMIC" "Utility" ];
+    icon = "${pkgs.tela-circle-icon-theme}/share/icons/Tela-circle/scalable/apps/calc.svg";
+    categories = ["COSMIC" "Utility"];
     startupNotify = true;
-    mimeType = [ "inode/directory" ];
+    mimeType = ["inode/directory"];
   };
 
   xdg.desktopEntries."com.system76.CosmicPlayer" = {
@@ -211,9 +207,8 @@
     exec = "cosmic-player %U";
     type = "Application";
     startupNotify = true;
-    icon =
-      "${pkgs.tela-circle-icon-theme}/share/icons/Tela-circle/scalable/apps/totem.svg";
-    categories = [ "COSMIC" "AudioVideo" "Player" "Video" ];
+    icon = "${pkgs.tela-circle-icon-theme}/share/icons/Tela-circle/scalable/apps/totem.svg";
+    categories = ["COSMIC" "AudioVideo" "Player" "Video"];
     mimeType = [
       "application/mxf"
       "application/ram"

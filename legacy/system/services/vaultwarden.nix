@@ -1,7 +1,11 @@
-{ config, lib, pkgs, ... }:
-let cfg = config.my.vaultwarden;
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  cfg = config.my.vaultwarden;
 in {
-
   options.my.vaultwarden = {
     enable = lib.mkEnableOption "Vaultwarden";
 
@@ -34,13 +38,17 @@ in {
     proxyPass = "http://localhost:${toString cfg.port}";
   };
 
-  my.homepage.services = [{
-    "Services" = [{
-      "Vaultwarden" = {
-        description = "Password Manager";
-        href = "https://${cfg.url}";
-        icon = "vaultwarden.png";
-      };
-    }];
-  }];
+  my.homepage.services = [
+    {
+      "Services" = [
+        {
+          "Vaultwarden" = {
+            description = "Password Manager";
+            href = "https://${cfg.url}";
+            icon = "vaultwarden.png";
+          };
+        }
+      ];
+    }
+  ];
 }

@@ -41,8 +41,8 @@
           l = "ls -l";
           ll = "ls -la";
           diff = "delta";
-          serve = "miniserve";
-          fm = "yazi";
+          # serve = "miniserve";
+          #          fm = "yazi";
           gg = "lazygit";
           ff = "fastfetch";
         };

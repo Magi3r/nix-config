@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   # Configure your system-wide user settings (groups, etc), add more users as needed.
   users.mutableUsers = false;
   users.users = {
@@ -13,14 +13,12 @@
       isNormalUser = true;
       description = "Wubbaboo";
       # openssh.authorizedKeys.keys = [
-        # Add your SSH public key(s) here, if you plan on using SSH to connect
+      # Add your SSH public key(s) here, if you plan on using SSH to connect
       # ];
       # Be sure to add any other groups you need (such as networkmanager, audio, docker, etc)
-      extraGroups = [ "networkmanager" "wheel" ]; # "libvirtd" "kvm" "adbusers" "docker" "i2c"
-      packages = [ ];
+      extraGroups = ["networkmanager" "wheel"]; # "libvirtd" "kvm" "adbusers" "docker" "i2c"
+      packages = [];
       shell = pkgs.fish;
     };
   };
 }
-
-

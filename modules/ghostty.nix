@@ -1,11 +1,18 @@
 {
   den.aspects.ghostty = {
-    homeMananger = {
+    homeManager = {
+      pkgs,
+      lib,
+      ...
+    }: {
       programs.ghostty = {
         enable = true;
         enableFishIntegration = true;
         enableBashIntegration = true;
-        settings = {};
+        settings = {
+          theme = "TokyoNight Moon";
+
+        };
       };
     };
   };

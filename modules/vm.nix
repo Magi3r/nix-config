@@ -6,7 +6,7 @@
   den,
   ...
 }: {
-  den.aspects.limgrave.includes = [(den.provides.tty-autologin "wubbaboo")];
+  # den.aspects.limgrave.includes = [(den.provides.tty-autologin "wubbaboo")];
 
   perSystem = {pkgs, ...}: {
     packages.vm = pkgs.writeShellApplication {

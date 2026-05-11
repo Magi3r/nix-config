@@ -9,5 +9,5 @@
   };
 
   # define an standalone home-manager for wubbaboo
-  # den.homes.x86_64-linux.wubbaboo = { };
+  # den.homes.x86_64-linux."wubbaboo@limgrave" = { };
 }

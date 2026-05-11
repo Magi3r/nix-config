@@ -2,7 +2,7 @@
   programs.starship = {
     enable = true;
     enableBashIntegration = true;
-#     enableZshIntegration = true;
+    #     enableZshIntegration = true;
     enableFishIntegration = true;
     settings = {
       palette = "catppuccin_mocha";
@@ -62,8 +62,7 @@
 
       directory = {
         read_only = " ";
-        format =
-          "[ $path](bg:blue fg:base)[$read_only](bg:blue fg:red)[](blue) ";
+        format = "[ $path](bg:blue fg:base)[$read_only](bg:blue fg:red)[](blue) ";
         truncation_length = 10;
         truncate_to_repo = true;
       };
@@ -73,8 +72,7 @@
         show_milliseconds = false;
         disabled = false;
         style = "bold italic sky";
-        format =
-          "[\\[](bold italic blue)[$duration]($style)[\\]](bold italic blue)";
+        format = "[\\[](bold italic blue)[$duration]($style)[\\]](bold italic blue)";
       };
 
       aws.symbol = "  ";
@@ -86,9 +84,8 @@
         format = "via [$symbol$context]($style) ";
         style = "blue bold";
         only_with_files = true;
-        detect_files =
-          [ "docker-compose.yml" "docker-compose.yaml" "Dockerfile" ];
-        detect_folders = [ ];
+        detect_files = ["docker-compose.yml" "docker-compose.yaml" "Dockerfile"];
+        detect_folders = [];
         disabled = false;
       };
 
@@ -138,12 +135,11 @@
 
       python = {
         symbol = "🐍 ";
-        format =
-          "via [\${symbol}python (\${version} )(\\(\${virtualenv}\\) )]($style)";
+        format = "via [\${symbol}python (\${version} )(\\(\${virtualenv}\\) )]($style)";
         style = "bold yellow";
         pyenv_prefix = "venv ";
-        python_binary = [ "./venv/bin/python" "python" "python3" "python2" ];
-        detect_extensions = [ "py" ];
+        python_binary = ["./venv/bin/python" "python" "python3" "python2"];
+        detect_extensions = ["py"];
         version_format = "v\${raw}";
       };
 
@@ -155,8 +151,8 @@
 
       nodejs = {
         format = "via [󰎙 Node.js $version](bold green) ";
-        detect_files = [ "package.json" ".node-version" ];
-        detect_folders = [ "node_modules" ];
+        detect_files = ["package.json" ".node-version"];
+        detect_folders = ["node_modules"];
       };
     };
   };

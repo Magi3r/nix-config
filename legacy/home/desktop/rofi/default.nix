@@ -1,7 +1,7 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   programs.rofi = {
     enable = true;
-    plugins = with pkgs; [ rofi-emoji rofi-calc ];
+    plugins = with pkgs; [rofi-emoji rofi-calc];
     extraConfig = {
       modi = "drun,emoji";
       font = "Open Sans 14px";
@@ -13,4 +13,3 @@
     theme = ./index.rasi;
   };
 }
-

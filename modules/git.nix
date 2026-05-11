@@ -1,6 +1,10 @@
 {
   den.aspects.git = {
     homeManager = {
+      pkgs,
+      lib,
+      ...
+    }: {
       programs.git = {
         enable = true;
 
@@ -22,7 +26,7 @@
           user.name = "Magi3r";
           user.email = "jvd@outlook.de";
 
-          aliases = {
+          alias = {
             st = "status";
             pu = "push";
             co = "checkout";

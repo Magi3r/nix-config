@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   # Disable if you don't want unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -108,5 +108,4 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-
 }

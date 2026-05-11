@@ -1,5 +1,4 @@
-{lib,...}:
-{
+{lib, ...}: {
   catppuccin = {
     bat = {
       enable = true;
@@ -35,7 +34,6 @@
   programs.fish = {
     enable = true;
 
-
     shellAliases = {
       e = "hx .";
       vi = "hx";
@@ -52,44 +50,44 @@
     };
   };
 
-#   programs.zsh = {
-#     enable = true;
-#     autocd = true;
-#
-#     autosuggestion.enable = true;
-#     syntaxHighlighting.enable = true;
-#
-#     history = {
-#       append = true;
-#       findNoDups = true;
-#       ignoreSpace = true;
-#     };
-#
-#     shellAliases = {
-#       e = "hx .";
-#       vi = "hx";
-#       vim = "hx";
-#       cat = "bat";
-#       ps = "procs";
-#       l = "ls -l";
-#       ll = "ls -la";
-#       diff = "delta";
-#       serve = "miniserve";
-#       fm = "yazi";
-#       gg = "lazygit";
-#       ff = "fastfetch";
-#     };
-#
-#     initContent.initExtra = ''
-#       unsetopt mouse
-#     '';
-#   };
+  #   programs.zsh = {
+  #     enable = true;
+  #     autocd = true;
+  #
+  #     autosuggestion.enable = true;
+  #     syntaxHighlighting.enable = true;
+  #
+  #     history = {
+  #       append = true;
+  #       findNoDups = true;
+  #       ignoreSpace = true;
+  #     };
+  #
+  #     shellAliases = {
+  #       e = "hx .";
+  #       vi = "hx";
+  #       vim = "hx";
+  #       cat = "bat";
+  #       ps = "procs";
+  #       l = "ls -l";
+  #       ll = "ls -la";
+  #       diff = "delta";
+  #       serve = "miniserve";
+  #       fm = "yazi";
+  #       gg = "lazygit";
+  #       ff = "fastfetch";
+  #     };
+  #
+  #     initContent.initExtra = ''
+  #       unsetopt mouse
+  #     '';
+  #   };
 
-  # shell completion 
+  # shell completion
   programs.carapace = {
     enable = true;
     enableBashIntegration = true;
-#     enableZshIntegration = true;
+    #     enableZshIntegration = true;
     enableFishIntegration = true;
   };
 
@@ -97,9 +95,9 @@
   programs.zoxide = {
     enable = true;
     enableBashIntegration = true;
-#     enableZshIntegration = true;
+    #     enableZshIntegration = true;
     enableFishIntegration = true;
-    options = [ "--cmd cd" ];
+    options = ["--cmd cd"];
   };
 
   programs.eza = {
@@ -107,7 +105,7 @@
     icons = "auto";
 
     enableBashIntegration = true;
-#     enableZshIntegration = true;
+    #     enableZshIntegration = true;
     enableFishIntegration = true;
   };
 }

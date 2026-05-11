@@ -1,7 +1,11 @@
-{ config, lib, pkgs, ... }:
-let cfg = config.my.immich;
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
+  cfg = config.my.immich;
 in {
-
   options.my.immich = {
     enable = lib.mkEnableOption "Immich";
 
@@ -32,13 +36,17 @@ in {
     proxyPass = "http://localhost:${toString cfg.port}";
   };
 
-  my.homepage.services = [{
-    "Services" = [{
-      "Immich" = {
-        description = "Fotos";
-        href = "https://${cfg.url}";
-        icon = "immich.png";
-      };
-    }];
-  }];
+  my.homepage.services = [
+    {
+      "Services" = [
+        {
+          "Immich" = {
+            description = "Fotos";
+            href = "https://${cfg.url}";
+            icon = "immich.png";
+          };
+        }
+      ];
+    }
+  ];
 }

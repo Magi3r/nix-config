@@ -1,15 +1,18 @@
-{ config, lib, pkgs, ... }:
-let
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}: let
   services = lib.flatten config.my.homepage.services;
   cfg = config.my.homepage;
 in {
-
   options.my.homepage = {
     enable = lib.mkEnableOption "Homepage";
 
     services = lib.mkOption {
       type = lib.types.listOf lib.types.attrs;
-      default = [ ];
+      default = [];
     };
 
     url = lib.mkOption {

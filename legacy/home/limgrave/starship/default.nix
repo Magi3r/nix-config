@@ -89,7 +89,7 @@
           "docker-compose.yaml"
           "Dockerfile"
         ];
-        detect_folders = [ ];
+        detect_folders = [];
         disabled = false;
       };
 
@@ -148,7 +148,7 @@
           "python3"
           "python2"
         ];
-        detect_extensions = [ "py" ];
+        detect_extensions = ["py"];
         version_format = "v\${raw}";
       };
 
@@ -164,7 +164,7 @@
           "package.json"
           ".node-version"
         ];
-        detect_folders = [ "node_modules" ];
+        detect_folders = ["node_modules"];
       };
     };
   };

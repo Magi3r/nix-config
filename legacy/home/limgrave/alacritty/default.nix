@@ -1,7 +1,7 @@
 {
   programs.alacritty = {
     enable = true;
-    settings = { };
+    settings = {};
     theme = "catppuccin_mocha";
   };
 }

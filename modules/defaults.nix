@@ -11,17 +11,18 @@
   den.schema.user.classes = lib.mkDefault ["homeManager"];
 
   # host<->user provides
-  den.ctx.user.includes = [den.provides.mutual-provider];
+  den.schema.user.includes = [den.batteries.mutual-provider];
 
   # Sets the system hostname as defined in den.hosts.<name>.hostName
   den.default.includes = [
-    den.provides.hostname
+    den.batteries.hostname
+    # den.batteries.inputs'
     <locale>
     <fonts>
     <networking>
     <bootloader>
     <nix>
-    <programs/default>
+    <apps/default>
     <tailscale>
   ];
 }

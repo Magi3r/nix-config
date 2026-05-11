@@ -1,7 +1,6 @@
-{ pkgs, ... }: {
-
+{pkgs, ...}: {
   xdg.mimeApps.defaultApplications = {
-    "x-scheme-handler/terminal" = [ "kitty.desktop" ];
+    "x-scheme-handler/terminal" = ["kitty.desktop"];
   };
 
   home.packages = with pkgs; [

@@ -12,6 +12,9 @@
       ...
     }: {
       console.keyMap = lib.mkForce "us";
+      services.xserver.xkb.layout = lib.mkForce  "us";
+
+      services.upower.enable = true;
       # environment.systemPackages = [pkgs.hello];
       imports = [
         ./_hosts/limgrave/hardware-configuration.nix
@@ -24,23 +27,24 @@
       <bluetooth>
       <desktop/niri>
       <print-and-scan>
-      <programs/gui>
+      <apps/gui>
       <wubbaboo>
-      ##############
-      <locale>
-      <fonts>
-      <networking>
-      <bootloader>
-      <nix>
-      <programs/default>
-      <tailscale>
+      # ##############
+      # <locale>
+      # <fonts>
+      # <networking>
+      # <bootloader>
+      # <nix>
+      # <apps/default>
+      # <tailscale>
     ];
 
     # host provides default home environment for its users
     # provides.to-users.homeManager =
     #   { pkgs, ... }:
     #   {
-    #     home.packages = [ pkgs.vim ];
+    #     home.pkgs = []
     #   };
+    # }:
   };
 }
