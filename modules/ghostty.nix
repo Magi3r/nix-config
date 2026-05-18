@@ -11,7 +11,6 @@
         enableBashIntegration = true;
         settings = {
           theme = "TokyoNight Moon";
-
         };
       };
     };

@@ -13,13 +13,14 @@
       <shell>
       <discord>
       <ghostty>
+      <opencode>
     ];
 
     homeManager = {pkgs, ...}: {
       home.packages = [];
       home.sessionVariables = {
         # EDITOR = "emacs";
-        EDITOR = "hx";
+        EDITOR = "zeditor";
         TERMINAL = "ghostty";
         XDG_TERMINAL_EMULATOR = "ghostty";
 

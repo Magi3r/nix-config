@@ -12,7 +12,7 @@
       ...
     }: {
       console.keyMap = lib.mkForce "us";
-      services.xserver.xkb.layout = lib.mkForce  "us";
+      services.xserver.xkb.layout = lib.mkForce "us";
 
       services.upower.enable = true;
       # environment.systemPackages = [pkgs.hello];

@@ -9,7 +9,10 @@
   };
   den.aspects.desktop.niri = {
     nixos = {pkgs, ...}: {
-      environment.systemPackages = [pkgs.xwayland-satellite];
+      environment.systemPackages = with pkgs; [
+        xwayland-satellite # xwayland support
+        ly # tui login manager
+      ];
       services = {
         # login manager
         # greetd.enable = true;
@@ -19,8 +22,8 @@
       programs.niri.enable = true;
 
       nix.settings = {
-        extra-substituters = [ "https://noctalia.cachix.org" ];
-        extra-trusted-public-keys = [ "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4=" ];
+        extra-substituters = ["https://noctalia.cachix.org"];
+        extra-trusted-public-keys = ["noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="];
       };
     };
 
