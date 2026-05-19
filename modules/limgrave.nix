@@ -28,6 +28,7 @@
       <desktop/niri>
       <print-and-scan>
       <apps/gui>
+      <powerManagement>
       <wubbaboo>
       # ##############
       # <locale>
