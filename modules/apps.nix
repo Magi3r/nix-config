@@ -4,26 +4,26 @@
   ...
 }: {
   den.aspects.apps = {
-    nixos = {pkgs, ...}: {
-      # Disable if you don't want unfree packages
-      nixpkgs.config.allowUnfree = true;
-      programs = {
-        # firefox.enable = true;
-
-        # fish.enable = true;
-        # Enable Nix-ld for dynamic linking (running elf binaries)
-        nix-ld.enable = true;
-        # steam.enable = true;
-        # to use gamemode with steam edit launch options inside
-        # game -> general -> launch options -> `gamemoderun %command%`
-        # gamemode.enable = true;
-
-        # virtualisation
-        # virt-manager.enable = true;
-        # adb.enable = true;
-      };
-    };
     default = {
+      nixos = {pkgs, ...}: {
+        # Disable if you don't want unfree packages
+        nixpkgs.config.allowUnfree = true;
+        programs = {
+          # firefox.enable = true;
+
+          # fish.enable = true;
+          # Enable Nix-ld for dynamic linking (running elf binaries)
+          nix-ld.enable = true;
+          # steam.enable = true;
+          # to use gamemode with steam edit launch options inside
+          # game -> general -> launch options -> `gamemoderun %command%`
+          # gamemode.enable = true;
+
+          # virtualisation
+          # virt-manager.enable = true;
+          # adb.enable = true;
+        };
+      };
       includes = [<apps/cli>];
     };
     cli = {
@@ -45,6 +45,7 @@
           fd # better find
           file
           fzf
+          uv # for python development
           git # imported through programs
           # k3s
           lazygit
@@ -107,6 +108,7 @@
           # GUI
           libreoffice
           zed-editor
+          obsidian
           # protonvpn-gui
           # qbittorrent
           # gimp
