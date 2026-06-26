@@ -21,7 +21,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     qylock = {
-      url = "github:Magi3r/qylock";
+      url = "github:Darkkal44/qylock";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

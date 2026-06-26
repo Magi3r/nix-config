@@ -5,7 +5,7 @@
   ...
 }: {
   flake-file.inputs = {
-    qylock.url = "github:Magi3r/qylock";
+    qylock.url = "github:Darkkal44/qylock";
     qylock.inputs.nixpkgs.follows = "nixpkgs";
   };
   den.aspects.desktop.niri = {
@@ -26,17 +26,22 @@
           enableHidpi = true;
           settings = {};
           wayland.enable = true;
-          genshin = {
-            enable = true;
-
-            # backgroundMode = "random";
-            # backgroundIndex = 3;
-          };
         };
         defaultSession = "niri";
       };
 
       programs.niri.enable = true;
+      programs.qylock = {
+        enable = true;
+        theme = "pixel-skyscrapers"; # any directory name under themes/
+        # sddm.enable = true;             # installs theme + sets it active (default)
+        # quickshell.enable = true;       # adds `qylock-lock` to PATH (default)
+
+        # Optional per-theme tweaks (replaces the interactive prompts):
+        # themeOptions = {
+        #   terraria.backgroundMode = "time";              # time | random | static                    # menu | game
+        # };
+      };
     };
 
     provides.to-users = {
