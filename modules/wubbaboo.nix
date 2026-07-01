@@ -20,7 +20,8 @@
       home.packages = [];
       home.sessionVariables = {
         # EDITOR = "emacs";
-        EDITOR = "zeditor";
+        EDITOR = "zeditor --foreground";
+        VISUAL = "zeditor";
         TERMINAL = "ghostty";
         XDG_TERMINAL_EMULATOR = "ghostty";
 
