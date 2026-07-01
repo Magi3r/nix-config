@@ -22,6 +22,7 @@
     <networking>
     <bootloader>
     <nix>
+    <sops>
     <apps/default>
     <tailscale>
   ];

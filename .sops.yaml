@@ -1,0 +1,7 @@
+creation_rules:
+  - path_regex: secrets/.*\.yaml$
+    key_size: 32
+    mac_only_encrypted: false
+    age: >-
+      age1speztyusjsaqlxjkve38vjsq0en3drg7atmvcql6eugrzvc404rsmqq3pp,
+      age1wvntnzze40f3ftvjvsk9y8t8m5h8jk3sfavznx3egsmj2r2u2gxs6r2tv8

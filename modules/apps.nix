@@ -27,6 +27,7 @@
       includes = [<apps/cli>];
     };
     cli = {
+      includes = [<taskwarrior>];
       nixos = {pkgs, ...}: {
         programs = {
           nh.enable = true;
