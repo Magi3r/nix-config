@@ -37,7 +37,7 @@
 
           # CLI tools # TODO: look into disabled options
           # android-tools
-          bat # imported though programs
+          (bat.overrideAttrs (_: { doCheck = false; })) # fix for raspi cross-compiling
           btop
           # bottom # task manager
           curl
@@ -46,7 +46,7 @@
           fd # better find
           file
           fzf
-          uv # for python development
+          # uv # for python development, should be in nix shell or env i guess
           git # imported through programs
           # k3s
           lazygit
@@ -82,7 +82,6 @@
           # sysstat
           usbutils # lsusb
           brightnessctl
-          wl-clipboard
           # pass
         ];
 
@@ -104,6 +103,7 @@
     };
     gui = {
       nixos = {pkgs, ...}: {
+
         programs.firefox.enable = true;
         environment.systemPackages = with pkgs; [
           # GUI
@@ -114,6 +114,7 @@
           # qbittorrent
           # gimp
           # godot
+          wl-clipboard
 
           # Gaming
           # lutris
@@ -121,8 +122,16 @@
         ];
       };
       includes = [
+        <fonts>
         # <discord>
         # <ghostty>
+      ];
+    };
+    homeManager = {
+      includes = [
+        <discord>
+        <ghostty>
+
       ];
     };
 

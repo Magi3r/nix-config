@@ -11,8 +11,6 @@
       (den.batteries.user-shell "fish")
       <git>
       <shell>
-      <discord>
-      <ghostty>
       <opencode>
     ];
 

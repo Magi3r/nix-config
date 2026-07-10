@@ -18,9 +18,8 @@
     den.batteries.hostname
     # den.batteries.inputs'
     <locale>
-    <fonts>
     <networking>
-    <bootloader>
+    # <bootloader> # raspberry pi needs a special bootloader, so this has to be defined at host level
     <nix>
     <sops>
     <apps/default>

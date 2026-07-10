@@ -23,6 +23,7 @@
 
     includes = [
       # den.default.includes
+      <bootloader>
       <audio>
       <bluetooth>
       <desktop/niri>
