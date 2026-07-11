@@ -64,6 +64,8 @@
     };
     includes = [
       <wubbaboo>
+      <services/caddy>
+      <services/adguard>
     ];
   };
 }

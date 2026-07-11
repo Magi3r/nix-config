@@ -17,7 +17,7 @@
   };
 
   inputs = {
-    den.url = "github:denful/den";
+    den.url = "github:denful/den/v0.17.0";
     flake-file.url = "github:denful/flake-file";
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
@@ -31,7 +31,7 @@
     nixos-raspberrypi.url = "github:nvmd/nixos-raspberrypi";
     nixpkgs.url = "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.xz";
     noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
+      url = "github:noctalia-dev/noctalia-shell/legacy-v4";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     qylock = {
