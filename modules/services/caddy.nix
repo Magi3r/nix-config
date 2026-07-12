@@ -4,6 +4,39 @@
     lib,
     ...
   }: {
+    flake-file.inputs = {
+      alloc.url = "github:Aleksanaa/alloc.nix";
+    };
+
+    # allocates ports from 30000-30999
+    # Syntax for using:
+    # # { config, lib, ... }:
+    # # {
+    # #   alloc.ports = {
+    # #     start = 1;
+    # #     interval = 65535;
+    # #     blocks = {
+    # #       someService = {
+    # #         length = 10;
+    # #       };
+    # #       anotherService = {
+    # #         start = 1714;
+    # #         length = 50;
+    # #       };
+    # #       someOtherService = {
+    # #         start = 8;
+    # #         length = 6;
+    # #       };
+    # #     };
+    # #   };
+    # #   b = config.alloc.ports.blocks.someService.start;
+    # # }
+
+    alloc.ports = {
+      start = 30000;
+      interval = 1000;
+    };
+
     nixos = {config, ...}: {
       sops.secrets.caddy_env = {};
 

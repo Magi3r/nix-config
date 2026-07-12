@@ -6,9 +6,14 @@
   }: let
     url = "homepage.local.magi3r.de";
   in {
-    nixos = {config, ...}:{
+    alloc.ports.blocks.homepage = {};
+
+    nixos = {config, ...}: let
+      port = config.alloc.ports.blocks.homepage.start;
+    in {
       services.homepage-dashboard = {
         enable = true;
+        port = port;
 
         widgets = [
           {
@@ -37,23 +42,12 @@
               }
             ];
           }
-
         ];
       };
 
       services.caddy.virtualHosts.${url}.extraConfig = ''
-        reverse_proxy localhost:${config.homepage-dashboard.port}
+        reverse_proxy localhost:${port}
       '';
-    };
-
-    networking.firewall = {
-      allowedTCPPorts = [
-        53
-      ];
-
-      allowedUDPPorts = [
-        53
-      ];
     };
   };
 }

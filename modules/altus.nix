@@ -77,7 +77,7 @@
       <services/caddy>
       <services/adguard>
       <services/searxng>
-+     <services/ntfy>
+      <services/ntfy>
     ];
   };
 }

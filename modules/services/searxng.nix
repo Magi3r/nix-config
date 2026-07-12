@@ -5,9 +5,13 @@
     ...
   }: let
     url = "homepage.local.magi3r.de";
-    port = 8080;
+    # port = 8080;
   in {
-    nixos = {config, ...}: {
+    alloc.ports.blocks.searxng = {};
+
+    nixos = {config, ...}: let
+      port = config.alloc.ports.blocks.searxng.start;
+    in {
       sops.secrets.searxng_env = {};
       services.searx = {
         enable = true;
@@ -16,11 +20,11 @@
         settings = {
           use_default_settings = {
             engines.remove = [
-              wikidata
+              "wikidata"
             ];
 
-            server.port = $port;
-            server.secret_key = "${SECRET_KEY}";
+            server.port = "${port}";
+            server.secret_key = "$SECRET_KEY";
           };
         };
       };
