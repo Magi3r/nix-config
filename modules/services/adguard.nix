@@ -1,30 +1,31 @@
 {
-  den.aspects.services.adguard = {pkgs,lib,...}:
-  let
+  den.aspects.services.adguard = {
+    pkgs,
+    lib,
+    ...
+  }: let
     url = "adguard.local.magi3r.de";
   in {
-  nixos = {
+    nixos = {
+      services.adguardhome = {
+        host = "localhost";
+        enable = true;
+        # Config is copied over manually
+      };
 
-    services.adguardhome = {
-      host = "localhost";
-      enable = true;
-
+      services.caddy.virtualHosts.${url}.extraConfig = ''
+        reverse_proxy localhost:3000
+      '';
     };
 
-    services.caddy.virtualHosts.${url}.extraConfig = ''
-      reverse_proxy localhost:3000
-    '';
-  };
+    networking.firewall = {
+      allowedTCPPorts = [
+        53
+      ];
 
-  networking.firewall = {
-    allowedTCPPorts = [
-      53
-    ];
-
-    allowedUDPPorts = [
-      53
-    ];
-  };
-
+      allowedUDPPorts = [
+        53
+      ];
+    };
   };
 }

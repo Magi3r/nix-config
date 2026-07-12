@@ -37,7 +37,7 @@
 
           # CLI tools # TODO: look into disabled options
           # android-tools
-          (bat.overrideAttrs (_: { doCheck = false; })) # fix for raspi cross-compiling
+          (bat.overrideAttrs (_: {doCheck = false;})) # fix for raspi cross-compiling
           btop
           # bottom # task manager
           curl
@@ -103,7 +103,6 @@
     };
     gui = {
       nixos = {pkgs, ...}: {
-
         programs.firefox.enable = true;
         environment.systemPackages = with pkgs; [
           # GUI
@@ -131,7 +130,6 @@
       includes = [
         <discord>
         <ghostty>
-
       ];
     };
 
