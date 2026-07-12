@@ -76,6 +76,7 @@
       <wubbaboo>
       <services/caddy>
       <services/adguard>
+      <services/searxng>
     ];
   };
 }
