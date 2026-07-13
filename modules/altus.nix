@@ -78,6 +78,7 @@
       <services/adguard>
       <services/searxng>
       <services/ntfy>
+      <services/immich>
     ];
   };
 }
