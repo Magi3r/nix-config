@@ -7,11 +7,11 @@
     url = "ntfy.local.magi3r.de";
     # port = 8080;
   in {
-    alloc.ports.blocks.ntfy = {};
 
     nixos = {config, ...}: let
       port = config.alloc.ports.blocks.ntfy.start;
     in {
+      alloc.ports.blocks.ntfy = {};
       services.ntfy-sh = {
         enable = true;
         settings = {

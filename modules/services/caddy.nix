@@ -32,12 +32,12 @@
     # #   b = config.alloc.ports.blocks.someService.start;
     # # }
 
-    alloc.ports = {
-      start = 30000;
-      interval = 1000;
-    };
 
     nixos = {config, ...}: {
+      alloc.ports = {
+        start = 30000;
+        interval = 1000;
+      };
       sops.secrets.caddy_env = {};
 
       services.caddy = {

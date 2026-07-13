@@ -7,11 +7,11 @@
     url = "homepage.local.magi3r.de";
     # port = 8080;
   in {
-    alloc.ports.blocks.searxng = {};
 
     nixos = {config, ...}: let
       port = config.alloc.ports.blocks.searxng.start;
     in {
+      alloc.ports.blocks.searxng = {};
       sops.secrets.searxng_env = {};
       services.searx = {
         enable = true;

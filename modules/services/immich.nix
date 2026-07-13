@@ -7,11 +7,11 @@
     url = "immich.local.magi3r.de";
     # port = 8080;
   in {
-    alloc.ports.blocks.immich = {};
 
     nixos = {config, ...}: let
       port = config.alloc.ports.blocks.immich.start;
     in {
+      alloc.ports.blocks.immich = {};
       # sops.secrets.immich_env = {};
 
       services.immich = {

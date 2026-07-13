@@ -5,11 +5,11 @@
     ...
   }: let
     url = "adguard.local.magi3r.de";
-    alloc.ports.blocks.adguard = {};
   in {
     nixos = {config, ...}: let
       port = config.alloc.ports.blocks.adguard.start;
     in {
+    alloc.ports.blocks.adguard = {};
       services.adguardhome = {
         host = "localhost";
         enable = true;

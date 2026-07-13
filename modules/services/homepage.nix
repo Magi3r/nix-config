@@ -6,11 +6,11 @@
   }: let
     url = "homepage.local.magi3r.de";
   in {
-    alloc.ports.blocks.homepage = {};
 
     nixos = {config, ...}: let
       port = config.alloc.ports.blocks.homepage.start;
     in {
+      alloc.ports.blocks.homepage = {};
       services.homepage-dashboard = {
         enable = true;
         port = port;
