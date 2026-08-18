@@ -1,6 +1,10 @@
 {den, ...}: {
   den.aspects.syncthing = {
-    nixos = {config, ...}: {
+    nixos = {
+      pkgs,
+      config,
+      ...
+    }: {
       sops.secrets.syncthing-gui-password = {};
 
       services.syncthing = {
@@ -10,5 +14,8 @@
         settings.gui.user = "admin";
       };
     };
+    # provides.to-users.homeManager = { pkgs, ... }: {
+    #   home.packages = [ pkgs.syncthingtray ];
+    # };
   };
 }

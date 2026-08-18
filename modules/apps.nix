@@ -122,12 +122,6 @@
       };
       includes = [
         <fonts>
-        # <discord>
-        # <ghostty>
-      ];
-    };
-    homeManager = {
-      includes = [
         <discord>
         <ghostty>
       ];

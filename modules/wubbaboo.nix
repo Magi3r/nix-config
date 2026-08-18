@@ -12,6 +12,9 @@
       <git>
       <shell>
       <opencode>
+
+      # <discord>
+      # <ghostty>
     ];
 
     homeManager = {pkgs, ...}: {

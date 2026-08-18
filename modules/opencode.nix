@@ -1,5 +1,5 @@
 {
-  den.aspects.opencode = {
+  den.aspects.opencode = {user}: {
     homeManager = {
       pkgs,
       lib,
