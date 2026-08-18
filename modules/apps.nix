@@ -124,6 +124,7 @@
         <fonts>
         <discord>
         <ghostty>
+        <bitwarden-desktop>
       ];
     };
 
