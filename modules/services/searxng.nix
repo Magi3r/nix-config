@@ -1,10 +1,9 @@
 {
   den.aspects.services.searxng = {
-    pkgs,
-    lib,
+    host,
     ...
   }: let
-    url = "homepage.local.magi3r.de";
+    url = "searxng.remote.magi3r.de";
     # port = 8080;
   in {
 
@@ -18,16 +17,24 @@
         domain = url;
         environmentFile = config.sops.secrets.searxng_env.path;
         settings = {
-          use_default_settings = {
-            engines.remove = [
-              "wikidata"
-            ];
-
-            server.port = "${port}";
-            server.secret_key = "$SECRET_KEY";
+          use_default_settings = true;
+          server = {
+            port = port;
+            secret_key = "@SECRET_KEY@";
           };
+          engines = [
+            {
+              name = "wikidata";
+              engine = "wikidata";
+              disabled = true;
+            }
+          ];
         };
       };
+
+      services.caddy.virtualHosts.${url}.extraConfig = ''
+        reverse_proxy localhost:${toString port}
+      '';
     };
   };
 }

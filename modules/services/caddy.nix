@@ -1,12 +1,14 @@
 {
+  inputs,
+  ...
+}: {
+  flake-file.inputs = {
+    alloc.url = "github:Aleksanaa/alloc.nix";
+  };
   den.aspects.services.caddy = {
-    pkgs,
-    lib,
+    host,
     ...
   }: {
-    flake-file.inputs = {
-      alloc.url = "github:Aleksanaa/alloc.nix";
-    };
 
     # allocates ports from 30000-30999
     # Syntax for using:
@@ -33,7 +35,11 @@
     # # }
 
 
-    nixos = {config, ...}: {
+    nixos = {config, pkgs, ...}: {
+      imports = [
+        (inputs.alloc.nixosModules.default)
+      ];
+
       alloc.ports = {
         start = 30000;
         interval = 1000;
@@ -42,19 +48,20 @@
 
       services.caddy = {
         enable = true;
+        openFirewall = true;
 
         package = pkgs.caddy.withPlugins {
           plugins = [
-            "github.com/caddy-dns/cloudflare"
+            "github.com/caddy-dns/cloudflare@v0.2.4"
           ];
 
-          hash = lib.fakeHash;
+          hash = "sha256-PWadA5qr/gR2qDcT8l8u1Xku7LM2HIfWTLOkzezCYy0=";
         };
         environmentFile = config.sops.secrets.caddy_env.path;
 
         email = "jvd@outlook.de";
 
-        virtualHosts."*.local.magi3r.de".extraConfig = ''
+        virtualHosts."*.remote.magi3r.de".extraConfig = ''
           tls {
             dns cloudflare {env.CF_TOKEN}
           }

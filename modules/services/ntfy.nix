@@ -1,7 +1,6 @@
 {
   den.aspects.services.ntfy = {
-    pkgs,
-    lib,
+    host,
     ...
   }: let
     url = "ntfy.local.magi3r.de";
@@ -16,12 +15,12 @@
         enable = true;
         settings = {
           base_url = url;
-          listen-http = ":${port}";
+          listen-http = ":${toString port}";
         };
       };
 
       services.caddy.virtualHosts.${url}.extraConfig = ''
-        reverse_proxy localhost:${port}
+        reverse_proxy localhost:${toString port}
       '';
     };
   };

@@ -1,10 +1,9 @@
 {
   den.aspects.services.homepage = {
-    pkgs,
-    lib,
+    host,
     ...
   }: let
-    url = "homepage.local.magi3r.de";
+    url = "homepage.remote.magi3r.de";
   in {
 
     nixos = {config, ...}: let
@@ -13,7 +12,8 @@
       alloc.ports.blocks.homepage = {};
       services.homepage-dashboard = {
         enable = true;
-        port = port;
+        listenPort = port;
+        allowedHosts = url;
 
         widgets = [
           {
@@ -46,7 +46,7 @@
       };
 
       services.caddy.virtualHosts.${url}.extraConfig = ''
-        reverse_proxy localhost:${port}
+        reverse_proxy localhost:${toString port}
       '';
     };
   };

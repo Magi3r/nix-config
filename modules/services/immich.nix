@@ -1,7 +1,6 @@
 {
   den.aspects.services.immich = {
-    pkgs,
-    lib,
+    host,
     ...
   }: let
     url = "immich.local.magi3r.de";
@@ -23,7 +22,7 @@
       };
 
       services.caddy.virtualHosts.${url}.extraConfig = ''
-        reverse_proxy localhost:${port}
+        reverse_proxy localhost:${toString port}
       '';
     };
   };
