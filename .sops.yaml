@@ -2,12 +2,14 @@ keys:
   - &master age1speztyusjsaqlxjkve38vjsq0en3drg7atmvcql6eugrzvc404rsmqq3pp
   - &limgrave age1wvntnzze40f3ftvjvsk9y8t8m5h8jk3sfavznx3egsmj2r2u2gxs6r2tv8
   - &altus age1rm664gefadrykqzye6fyfsmfxvuqjcfxg0wapwtywvn9jzqzh5fqg70ywz
+  - &gelmir age1pkt8dwmahc3ahctqffpvp54xg8uvt8fhq0gt36rphqtf7jemffmq0s05c4
 creation_rules:
   - path_regex: secrets/.*\.yaml$
     key_size: 32
     mac_only_encrypted: false
     key_groups:
       - age:
-          - *master
-          - *limgrave
-          - *altus
+        - *master
+        - *limgrave
+        - *altus
+        - *gelmir

@@ -15,6 +15,13 @@
     extraGroups = [];
   };
 
+  # wubbaboo user at gelmir host (Oracle Cloud VPS server).
+  den.hosts.aarch64-linux.gelmir.users.wubbaboo = {
+    hashedPassword = "$y$j9T$NqA028hjFPZMX8y0NLMHV/$d4IyA/j2iMQyv1cFjjiR6tIv5AMQL1Rupxee2MMcUNB";
+    description = "Gelmir";
+    extraGroups = [];
+  };
+
   # define an standalone home-manager for wubbaboo
   # den.homes.x86_64-linux."wubbaboo@limgrave" = { };
   # den.homes.aarch64-linux."wubbaboo@altus" = { };

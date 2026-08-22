@@ -12,9 +12,6 @@
       <git>
       <shell>
       <opencode>
-
-      # <discord>
-      # <ghostty>
     ];
 
     homeManager = {pkgs, ...}: {
@@ -39,6 +36,10 @@
 
     # user can provide NixOS configurations
     # to any host it is included on
-    # provides.to-hosts.nixos = { pkgs, ... }: { };
+    provides.to-hosts.nixos = {
+      users.users.wubbaboo.openssh.authorizedKeys.keys = [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPLwPQ7gVfjmUVIzj4d/DYeIMe3Ph2iNNEsp3EPiOHSa" # Add your SSH public key here
+      ];
+    };
   };
 }

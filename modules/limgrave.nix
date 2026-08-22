@@ -23,7 +23,7 @@
 
     includes = [
       # den.default.includes
-      <bootloader>
+      <bootloader/limine>
       <audio>
       <bluetooth>
       <desktop/niri>
