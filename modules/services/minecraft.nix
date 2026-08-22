@@ -21,6 +21,8 @@
         "d /var/lib/minecraft/e2ee 0755 root root -"
       ];
 
+      sops.secrets.minecraft_env = {};
+
       virtualisation.oci-containers.containers = {
         mc-router = {
           image = "itzg/mc-router";
@@ -45,13 +47,18 @@
           volumes = [
             "/var/lib/minecraft/e2ee:/data"
           ];
+          environmentFiles = [
+            config.sops.secrets.minecraft_env.path
+          ];
           environment = {
             EULA = "TRUE";
             TYPE = "CURSEFORGE";
             CF_SERVER_MOD = "https://github.com/Krutoy242/Enigmatica2Expert-Extended/releases/download/v1.85.1-beta/E2E-Extended-v1.85.1-beta-server.zip";
             MEMORY = "6G";
-            USE_AIKAR_FLAGS = "true";
             TZ = "Europe/Berlin";
+            ENABLE_WHITELIST = "TRUE";
+            OVERRIDE_WHITELIST = "TRUE";
+            OVERRIDE_OPS="TRUE";
           };
         };
       };
