@@ -17,7 +17,16 @@
   };
 
   inputs = {
+    alloc.url = "github:Aleksanaa/alloc.nix";
     den.url = "github:denful/den/v0.17.0";
+    deploy-rs = {
+      url = "github:serokell/deploy-rs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     flake-file.url = "github:denful/flake-file";
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
@@ -29,7 +38,7 @@
     };
     import-tree.url = "github:vic/import-tree";
     nixos-raspberrypi.url = "github:nvmd/nixos-raspberrypi";
-    nixpkgs.url = "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.xz";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell/legacy-v4";
       inputs.nixpkgs.follows = "nixpkgs";
