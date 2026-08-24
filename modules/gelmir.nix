@@ -35,7 +35,8 @@
       <services/caddy>
       <services/homepage>
       <services/searxng>
-      <services/minecraft>
+      <services/palworld>
+      # <services/minecraft>
       # <services/actual-budget>
     ];
   };
