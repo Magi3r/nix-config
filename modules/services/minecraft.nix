@@ -11,6 +11,7 @@
     nixos = {
       host,
       config,
+      pkgs,
       ...
     }: let
       url = "e2ee.remote.magi3r.de";
@@ -52,13 +53,14 @@
           ];
           environment = {
             EULA = "TRUE";
-            TYPE = "CURSEFORGE";
-            CF_SERVER_MOD = "https://github.com/Krutoy242/Enigmatica2Expert-Extended/releases/download/v1.85.1-beta/E2E-Extended-v1.85.1-beta-server.zip";
+            TYPE = "AUTO_CURSEFORGE";
+            CF_PAGE_URL = "https://www.curseforge.com/minecraft/modpacks/enigmatica-2-expert-extended";
             MEMORY = "6G";
+            USE_AIKAR_FLAGS = "true";
             TZ = "Europe/Berlin";
             ENABLE_WHITELIST = "TRUE";
             OVERRIDE_WHITELIST = "TRUE";
-            OVERRIDE_OPS="TRUE";
+            OVERRIDE_OPS = "TRUE";
           };
         };
       };
