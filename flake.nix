@@ -40,7 +40,7 @@
     nixos-raspberrypi.url = "github:nvmd/nixos-raspberrypi";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
     noctalia = {
-      url = "github:noctalia-dev/noctalia-shell/legacy-v4";
+      url = "github:noctalia-dev/noctalia";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     qylock = {

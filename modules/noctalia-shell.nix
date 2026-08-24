@@ -4,7 +4,7 @@
   ...
 }: {
   flake-file.inputs = {
-    noctalia.url = "github:noctalia-dev/noctalia-shell/legacy-v4";
+    noctalia.url = "github:noctalia-dev/noctalia";
     noctalia.inputs.nixpkgs.follows = "nixpkgs";
   };
 
@@ -20,11 +20,10 @@
         imports = [
           inputs.noctalia.homeModules.default
         ];
-        programs.noctalia-shell = {
+        programs.noctalia = {
           enable = true;
-          package = pkgs.noctalia-shell;
         };
-        xdg.configFile."noctalia/config.json".source = ../assets/config/noctalia/settings.json;
+        xdg.configFile."noctalia/config.toml".source = ../assets/config/noctalia/config.toml;
         home.file."Pictures/Wallpapers/tokyo_night-05.png".source = ../assets/wallpapers/tokyo_night-05.png;
         home.file.".face".source = ../assets/profile-pic.png;
       };
