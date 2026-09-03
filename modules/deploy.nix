@@ -59,6 +59,18 @@
         #     path = inputs.deploy-rs.lib.aarch64-linux.activate.nixos inputs.self.nixosConfigurations.altus;
         #   };
         # };
+        "farum-azula" = {
+          # TODO: replace with the real IP once assigned by Webtropia.
+          hostname = "farum-azula";
+          sshUser = "builder";
+          # After the first nixos-anywhere install, switch to remoteBuild = true
+          # to avoid shipping the nix store across the line on every deploy.
+          remoteBuild = false;
+          profiles.system = {
+            user = "root";
+            path = inputs.deploy-rs.lib.x86_64-linux.activate.nixos inputs.self.nixosConfigurations."farum-azula";
+          };
+        };
       };
     };
   };

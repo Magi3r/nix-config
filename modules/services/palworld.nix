@@ -49,7 +49,7 @@
             PLAYERS = "8";
 
             # Performance & Multithreading (optimized for 2 cores)
-            ENABLE_PERF_THREADING_ARGS = "true";
+            ENABLE_PERF_THREADING_ARGS = "false";
             WORKER_THREADS_SERVER = "2";
             ARM64_DEVICE = "generic";
 

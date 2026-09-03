@@ -24,6 +24,8 @@
         ./_hosts/gelmir/disko.nix
         ./_hosts/gelmir/hardware-configuration.nix
       ];
+
+      networking.domain = "remote.magi3r.de";
     };
 
     includes = [

@@ -35,7 +35,12 @@
     # # }
 
 
-    nixos = {config, pkgs, ...}: {
+    nixos = {
+      config,
+      pkgs,
+      lib,
+      ...
+    }: {
       imports = [
         (inputs.alloc.nixosModules.default)
       ];
@@ -61,11 +66,20 @@
 
         email = "jvd@outlook.de";
 
-        virtualHosts."*.remote.magi3r.de".extraConfig = ''
-          tls {
-            dns cloudflare {env.CF_TOKEN}
+        extraConfig = ''
+          (cloudflare) {
+            tls {
+              dns cloudflare {env.CF_TOKEN}
+            }
           }
         '';
+
+        # Dynamic wildcard certificate for this host's base domain
+        virtualHosts = lib.optionalAttrs (config.networking.domain != null && config.networking.domain != "") {
+          "*.${config.networking.domain}".extraConfig = ''
+            import cloudflare
+          '';
+        };
       };
     };
   };

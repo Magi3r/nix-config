@@ -2,11 +2,10 @@
   den.aspects.services.homepage = {
     host,
     ...
-  }: let
-    url = "homepage.remote.magi3r.de";
-  in {
+  }: {
 
     nixos = {config, ...}: let
+      url = "homepage.${config.networking.domain}";
       port = config.alloc.ports.blocks.homepage.start;
     in {
       alloc.ports.blocks.homepage = {};

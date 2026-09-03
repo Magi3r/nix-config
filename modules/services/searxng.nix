@@ -2,12 +2,10 @@
   den.aspects.services.searxng = {
     host,
     ...
-  }: let
-    url = "searxng.remote.magi3r.de";
-    # port = 8080;
-  in {
+  }: {
 
     nixos = {config, ...}: let
+      url = "searxng.${config.networking.domain}";
       port = config.alloc.ports.blocks.searxng.start;
     in {
       alloc.ports.blocks.searxng = {};
