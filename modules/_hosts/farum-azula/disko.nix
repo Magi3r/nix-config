@@ -9,11 +9,15 @@
         content = {
           type = "gpt";
           partitions = {
-            ESP = {
+            boot = {
+              size = "1M";
+              type = "EF02"; # BIOS boot partition for GRUB MBR
               priority = 1;
+            };
+            ESP = {
+              priority = 2;
               name = "ESP";
-              start = "1M";
-              end = "512M";
+              size = "512M";
               type = "EF00";
               content = {
                 type = "filesystem";

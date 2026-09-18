@@ -3,6 +3,7 @@ keys:
   - &limgrave age1wvntnzze40f3ftvjvsk9y8t8m5h8jk3sfavznx3egsmj2r2u2gxs6r2tv8
   - &altus age1rm664gefadrykqzye6fyfsmfxvuqjcfxg0wapwtywvn9jzqzh5fqg70ywz
   - &gelmir age1pkt8dwmahc3ahctqffpvp54xg8uvt8fhq0gt36rphqtf7jemffmq0s05c4
+  - &farum-azula age1yeljwv5xdw5dz99vcwuvld4zqnhmjg024l4f46mkfg7840x0d35spzz0ff
 creation_rules:
   - path_regex: secrets/.*\.yaml$
     key_size: 32
@@ -13,3 +14,4 @@ creation_rules:
         - *limgrave
         - *altus
         - *gelmir
+        - *farum-azula
