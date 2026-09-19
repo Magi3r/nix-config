@@ -22,7 +22,6 @@
       };
       sops.secrets.palworld_env = {};
 
-
       systemd.tmpfiles.rules = [
         "d /var/lib/palworld 0777 root root -"
       ];
@@ -39,7 +38,7 @@
           volumes = [
             "/var/lib/palworld:/palworld"
           ];
-          environmentFiles = [ config.sops.secrets.palworld_env.path ];
+          environmentFiles = [config.sops.secrets.palworld_env.path];
           environment = {
             TZ = "Europe/Berlin";
             PUID = "1000";

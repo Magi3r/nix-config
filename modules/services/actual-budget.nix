@@ -1,12 +1,6 @@
-{
-  den,
-  ...
-}: {
-  den.aspects.services.actual-budget = {host,...}:{
-    nixos = {
-      config,
-      ...
-    }: let
+{den, ...}: {
+  den.aspects.services.actual-budget = {host, ...}: {
+    nixos = {config, ...}: let
       url = "budget.remote.magi3r.de";
       port = config.alloc.ports.blocks.actual-budget.start;
     in {

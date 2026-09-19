@@ -1,7 +1,4 @@
-{
-  den,
-  ...
-}: {
+{den, ...}: {
   den.aspects.virtualisation = {
     nixos = {pkgs, ...}: {
       virtualisation.docker = {

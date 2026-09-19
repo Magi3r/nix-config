@@ -1,12 +1,8 @@
 {
-  den.aspects.services.ntfy = {
-    host,
-    ...
-  }: let
+  den.aspects.services.ntfy = {host, ...}: let
     url = "ntfy.local.magi3r.de";
     # port = 8080;
   in {
-
     nixos = {config, ...}: let
       port = config.alloc.ports.blocks.ntfy.start;
     in {

@@ -1,12 +1,8 @@
 {
-  den.aspects.services.immich = {
-    host,
-    ...
-  }: let
+  den.aspects.services.immich = {host, ...}: let
     url = "immich.local.magi3r.de";
     # port = 8080;
   in {
-
     nixos = {config, ...}: let
       port = config.alloc.ports.blocks.immich.start;
     in {

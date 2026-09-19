@@ -1,9 +1,5 @@
 {
-  den.aspects.services.searxng = {
-    host,
-    ...
-  }: {
-
+  den.aspects.services.searxng = {host, ...}: {
     nixos = {config, ...}: let
       url = "searxng.${config.networking.domain}";
       port = config.alloc.ports.blocks.searxng.start;

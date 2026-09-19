@@ -1,9 +1,5 @@
 {
-  den.aspects.services.homepage = {
-    host,
-    ...
-  }: {
-
+  den.aspects.services.homepage = {host, ...}: {
     nixos = {config, ...}: let
       url = "homepage.${config.networking.domain}";
       port = config.alloc.ports.blocks.homepage.start;

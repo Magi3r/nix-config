@@ -1,14 +1,15 @@
 {
-  den.aspects.services.adguard = {
-    host,
-    ...
-  }: let
+  den.aspects.services.adguard = {host, ...}: let
     url = "adguard.local.magi3r.de";
   in {
-    nixos = {host, config, ...}: let
+    nixos = {
+      host,
+      config,
+      ...
+    }: let
       port = config.alloc.ports.blocks.adguard.start;
     in {
-    alloc.ports.blocks.adguard = {};
+      alloc.ports.blocks.adguard = {};
       services.adguardhome = {
         host = "localhost";
         enable = true;

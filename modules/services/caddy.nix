@@ -1,15 +1,8 @@
-{
-  inputs,
-  ...
-}: {
+{inputs, ...}: {
   flake-file.inputs = {
     alloc.url = "github:Aleksanaa/alloc.nix";
   };
-  den.aspects.services.caddy = {
-    host,
-    ...
-  }: {
-
+  den.aspects.services.caddy = {host, ...}: {
     # allocates ports from 30000-30999
     # Syntax for using:
     # # { config, lib, ... }:
@@ -33,7 +26,6 @@
     # #   };
     # #   b = config.alloc.ports.blocks.someService.start;
     # # }
-
 
     nixos = {
       config,
