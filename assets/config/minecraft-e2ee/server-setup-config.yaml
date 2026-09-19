@@ -1,0 +1,201 @@
+# Version of the specs, only for internal usage if this format should ever change drastically
+_specver: 2
+
+# modpack related settings, changes the supposed to change the visual appearance of the launcher
+modpack:
+  # Name of the mod pack, that is displayed in various places where it fits
+  name: Enigmatica 2 Expert Extended
+
+  # Description
+  description: Continuation of E2E
+
+# settings regarding the installation of the modpack
+install:
+  # version of minecraft, needs the exact version
+  mcVersion: 1.12.2
+
+  # exact version of forge or fabric that is supposed to be used
+  # if this value is a null value so ( ~, null, or "" ) then the version from the mod pack is going to be used
+  loaderVersion: ~
+
+  # If a custom installer is supposed to used, specify the url here: (Otherwise put "", ~ or null here)
+  # supports variables: {{@loaderversion@}} and {{@mcversion@}}
+  # For forge: "http://files.minecraftforge.net/maven/net/minecraftforge/forge/{{@mcversion@}}-{{@loaderversion@}}/forge-{{@mcversion@}}-{{@loaderversion@}}-installer.jar"
+  # For Fabric: "https://maven.fabricmc.net/net/fabricmc/fabric-installer/{{@loaderversion@}}/fabric-installer-{{@loaderversion@}}.jar"
+  installerUrl: 'https://github.com/CleanroomMC/Cleanroom/releases/download/0.6.11-alpha/cleanroom-0.6.11-alpha-installer.jar'
+
+  # Installer Arguments
+  # These Arguments have to be passed to the installer
+  installerArguments:
+    - --installServer
+
+  # Link to where the file where the modpack can be distributed
+  # This supports loading from local files as well for most pack types if there is file://{PathToFile} in the beginning
+  modpackUrl: https://github.com/Krutoy242/Enigmatica2Expert-Extended/releases/download/v1.87.1/E2E-Extended-v1.87.1.zip
+
+  # This is used to specify in which format the modpack is distributed, the server launcher has to handle each individually if their format differs
+  modpackFormat: curse
+
+  # Settings which are specific to the format used, might not be needed in some casese
+  formatSpecific:
+    # optional paramenter used for curse to specify a whole project to ignore (mostly if it is client side only)
+    ignoreProject:
+      - 79287 # Waila Harvestability
+      - 222378 # MineMenu
+      - 225928 # Custom Backgrounds
+      - 226406 # Custom Main Menu
+      - 226447 # Resource Loader
+      - 231453 # ChatFlow
+      - 236484 # Chunk Animator
+      - 237701 # ReAuth
+      - 238372 # Neat
+      - 238891 # Dynamic Surroundings
+      - 240630 # Just Enough Resources (JER)
+      - 243478 # More Overlays
+      - 245733 # ToroHealth Damage Indicators
+      - 250398 # Controlling
+      - 262366 # Keyboard Wizard
+      - 267602 # ConnectedTexturesMod
+      - 267939 # Just Enough HarvestCraft (JEHC)
+      - 272515 # Better Advancements
+      - 280294 # FPS Reducer
+      - 285492 # Thaumic JEI
+      - 285742 # Smooth Font
+      - 291727 # Just Enough Petroleum
+      - 295736 # MemoryTester
+      - 297038 # CraftPresence
+      - 297363 # Biome Border Viewer
+      - 299080 # Proportional Destruction Particles
+      - 303122 # Just Enough Throwing In Fluids (JETIF)
+      - 306549 # Tips
+      - 308240 # Cherished Worlds
+      - 310560 # Grid
+      - 311927 # Nimble (Forge)
+      - 313816 # Armor Toughness Bar
+      - 314002 # Overloaded Armor Bar
+      - 316304 # Loot Capacitor Tooltips
+      - 319656 # ScalingGUIs
+      - 327048 # IconExporter
+      - 403303 # Potion Descriptions (Forge)
+      - 408853 # Particle Culling
+      - 409087 # Entity Culling
+      - 417557 # BilingualName
+      - 438451 # Precision Mining
+      - 446253 # Better Biome Blend
+      - 454215 # Just Enough Drags
+      - 461660 # Mouse Tweaks Unofficial
+      - 502649 # Mini Effects
+      - 513769 # Item Borders [Forge]
+      - 521590 # Item Highlighter
+      - 532127 # Legendary Tooltips
+      - 616190 # JEI Utilities
+      - 624960 # Nothirium
+      - 624967 # RenderLib
+      - 650242 # File Director (only for optifine)
+      - 782070 # Startup Timer
+      - 848933 # Hit Indication
+      - 874067 # Valkyrie
+      - 928895 # Key Binding Patch
+      - 940521 # Just Enough Magiculture
+      - 1056812 # UniLib
+      - 1073925 # Rather Enough Immersive Multiblocks
+      - 1081085 # MiniEffects-Legacy Extended Life
+      - 1085598 # JEI Area Fixer
+      - 1121489 # AE2 Crafting Tree - Legacy
+      - 1132293 # Backpack Display
+      - 1147522 # Backpack Opener
+      - 1153019 # Naughthirium
+      - 1154099 # Crash Assistant
+      - 1214490 # Cleanroom Relauncher
+      - 1220460 # Gnetum
+      - 1234162 # Lumenized
+      - 1329068 # MorphOverlay
+      - 1331377 # Armored Arms
+      - 1501813 # Nothirium LittleTiles Patch
+
+    # The base path where the server should be installed to, ~ for current path
+  baseInstallPath: ~
+
+  # a list of files which are supposed to be ignored when installing it from the client files
+  ignoreFiles:
+    - config/thaumicjei_itemstack_aspects.json
+    - minemenu
+    - resourcepacks
+    - resources
+    - schematics
+
+  additionalFiles:
+    - url: https://mediafilez.forgecdn.net/files/5370/660/mc2discord-forge-1.12.2-3.3.2.jar
+      destination: mods/mc2discord-forge-1.12.2-3.3.2.jar
+    - url: https://edge.forgecdn.net/files/7811/408/tt20-G122-0.7.2.jar
+      destination: mods/tt20-G122-0.7.2.jar
+
+  # Local file overrides applied after modpack extraction
+  localFiles:
+    - from: custom-configs/justenoughdimensions.cfg
+      to: config/justenoughdimensions/justenoughdimensions.cfg
+
+  # This makes the program check the folder for whether it is supposed to use the
+  checkFolder: true
+
+  # Whether to install the Loader (Forge or Fabric) or not, should always be true/true unless you only want to install the pack
+  installLoader: true
+
+  # Sponge bootstrapper jar URL
+  spongeBootstrapper: https://github.com/simon816/SpongeBootstrap/releases/download/v0.7.1/SpongeBootstrap-0.7.1.jar
+
+  connectTimeout: 30
+  readTimeout: 30
+
+# settings regarding the launching of the pack
+launch:
+  spongefix: false
+  ramDisk: false
+  checkOffline: false
+
+  # specifies the max and min amount of ram the server is supposed to launch with
+  maxRam: 6G
+  minRam: 6G
+
+  autoRestart: false
+  crashLimit: 10
+  crashTimer: 5min
+
+  preJavaArgs: ~
+  startFile: cleanroom-0.6.11-alpha.jar
+
+  startCommand:
+    - -jar
+    - '{{@startFile@}}'
+    - nogui
+
+  forcedJavaPath: ~
+
+  # Java args that are supposed to be used when the server launches
+  javaArgs:
+    - '-XX:+UseG1GC'
+    - '-XX:+ParallelRefProcEnabled'
+    - '-XX:MaxGCPauseMillis=200'
+    - '-XX:+UnlockExperimentalVMOptions'
+    - '-XX:+DisableExplicitGC'
+    - '-XX:+AlwaysPreTouch'
+    - '-XX:G1NewSizePercent=30'
+    - '-XX:G1MaxNewSizePercent=40'
+    - '-XX:G1HeapRegionSize=8M'
+    - '-XX:G1ReservePercent=20'
+    - '-XX:G1HeapWastePercent=5'
+    - '-XX:G1MixedGCCountTarget=4'
+    - '-XX:InitiatingHeapOccupancyPercent=15'
+    - '-XX:G1MixedGCLiveThresholdPercent=90'
+    - '-XX:G1RSetUpdatingPauseTimePercent=5'
+    - '-XX:SurvivorRatio=32'
+    - '-XX:+PerfDisableSharedMem'
+    - '-XX:MaxTenuringThreshold=1'
+    - '-XX:MetaspaceSize=384M'
+    - '-Dusing.aikars.flags=https://mcflags.emc.gs'
+    - -Daikars.new.flags=true
+    - -Dfml.readTimeout=180
+    - -Dfml.queryResult=confirm
+    - --add-opens=java.base/sun.security.util=ALL-UNNAMED
+    - --add-opens=java.base/java.util.jar=ALL-UNNAMED
+    - '-XX:+IgnoreUnrecognizedVMOptions'
