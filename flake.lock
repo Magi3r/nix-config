@@ -364,6 +364,22 @@
         "type": "github"
       }
     },
+    "room-reg-impl": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1773419561,
+        "narHash": "sha256-u6H+77yvanlwu78ddmXydXvbmjCIPNv5M+FLOdxuexs=",
+        "owner": "simvux",
+        "repo": "room-reg-impl",
+        "rev": "e22817f4341b88419117c794ecb96db83bf5bb9e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "simvux",
+        "repo": "room-reg-impl",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "alloc": "alloc",
@@ -378,6 +394,7 @@
         "nixpkgs": "nixpkgs_2",
         "noctalia": "noctalia",
         "qylock": "qylock",
+        "room-reg-impl": "room-reg-impl",
         "sops-nix": "sops-nix"
       }
     },
