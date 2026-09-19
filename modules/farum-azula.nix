@@ -88,6 +88,7 @@
       <services/bentopdf>
       <services/datefinder-bot>
       <services/webdav>
+      <services/foundryvtt>
       <services/yuzu-room>
     ];
   };
