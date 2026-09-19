@@ -5,12 +5,12 @@
   ...
 }: {
   den.aspects.services.headscale = {
-    includes = [
-      <services/caddy>
-    ];
-
-    nixos = {config, pkgs, ...}: let
-      url = "headscale.${config.networking.domain}";
+    nixos = {
+      config,
+      pkgs,
+      ...
+    }: let
+      url = "tailscale.${config.networking.domain}";
       port = config.alloc.ports.blocks.headscale.start;
     in {
       alloc.ports.blocks.headscale = {};
@@ -22,13 +22,21 @@
         settings = {
           server_url = "https://${url}";
           metrics_listen_addr = "127.0.0.1:9877";
+          policy.path = inputs.self + "/assets/config/headscale/acl.hujson";
+          dns = {
+            base_domain = "headscale.${config.networking.domain}";
+            nameservers.global = [
+              "1.1.1.1"
+              "1.0.0.1"
+            ];
+          };
+          logtail.enabled = false;
         };
       };
 
-      sops.secrets.headscale_config = {};
-
       systemd.tmpfiles.rules = [
-        "d /var/lib/headscale 0750 root root -"
+        "d /var/lib/headscale 0750 headscale headscale -"
+        "Z /var/lib/headscale 0750 headscale headscale -"
       ];
 
       # Caddy reverse proxy to headscale

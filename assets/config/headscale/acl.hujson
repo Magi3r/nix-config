@@ -1,0 +1,20 @@
+{
+	"groups": {
+		"group:ssh": ["admin@"],
+	},
+	"tagOwners": {
+		"tag:ssh": ["group:ssh"],
+	},
+	"acls": [
+		// Allow all connections.
+		{ "action": "accept", "src": ["*"], "dst": ["*:*"] },
+	],
+	"ssh": [
+		{
+			"action": "accept",
+			"src": ["group:ssh"],
+			"dst": ["tag:ssh"],
+			"users": ["wubbaboo", "autogroup:nonroot"]
+		},
+	],
+}
