@@ -90,6 +90,7 @@
       <services/webdav>
       <services/filebrowser>
       <services/foundryvtt>
+      <services/grimoire-codex>
       <services/yuzu-room>
     ];
   };
