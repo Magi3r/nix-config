@@ -1,0 +1,18 @@
+server:
+  database:
+    path: "/home/filebrowser/data/filebrowser.sqlite"
+  cacheDir: "/home/filebrowser/data/tmp"
+  sources:
+    - path: "/srv/files"
+      name: "Files"
+      config:
+        defaultEnabled: true
+
+http:
+  port: 80
+  listen: "0.0.0.0"
+
+auth:
+  methods:
+    password:
+      enabled: true
