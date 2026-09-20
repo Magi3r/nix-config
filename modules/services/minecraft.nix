@@ -41,7 +41,7 @@
     in {
       alloc.ports.blocks.minecraft = {};
       systemd.tmpfiles.rules = [
-        "d /var/lib/minecraft/e2ee 0755 root root -"
+        "d /var/lib/minecraft/e2ee 0755 1000 1000 -"
       ];
 
       # Automatically populate server files if not already installed

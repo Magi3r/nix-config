@@ -70,10 +70,11 @@
       ];
       # ============================================================
       # TODO: Add config below this
-      services.openssh.enable = true;
+      networking.domain = "local.magi3r.de";
     };
     includes = [
       <wubbaboo>
+      <ssh>
       <services/caddy>
       <services/adguard>
       <services/searxng>

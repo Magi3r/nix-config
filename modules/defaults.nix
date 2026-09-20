@@ -25,4 +25,9 @@
     <apps/default>
     <tailscale>
   ];
+
+  # Formatter for nix flake check
+  perSystem = { pkgs, ... }: {
+    formatter = pkgs.alejandra;
+  };
 }

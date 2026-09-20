@@ -8,7 +8,7 @@
       sops.secrets.webdav_env = {};
 
       systemd.tmpfiles.rules = [
-        "d /var/lib/minecraft/e2ee 0600 root root -"
+        "d /var/lib/webdav 0755 1000 1000 -"
       ];
 
       services.webdav = {
