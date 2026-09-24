@@ -28,7 +28,7 @@
 
       virtualisation.oci-containers.containers = {
         foundry = {
-          image = "itzfelddy/foundryvtt:14";
+          image = "felddy/foundryvtt:14";
           autoStart = true;
           ports = [
             "127.0.0.1:${toString port}:30000"

@@ -21,7 +21,7 @@
         ./_hosts/farum-azula/hardware-configuration.nix
       ];
 
-      networking.domain = "new.magi3r.de";
+      networking.domain = "magi3r.de";
 
       # Webtropia static point-to-point network configuration
       networking.useNetworkd = true;
@@ -92,6 +92,8 @@
       <services/foundryvtt>
       <services/grimoire-codex>
       <services/yuzu-room>
+      <services/taskchampion>
+      <services/matrix-server>
     ];
   };
 }

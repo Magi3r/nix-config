@@ -27,7 +27,7 @@
   ];
 
   # Formatter for nix flake check
-  perSystem = { pkgs, ... }: {
+  perSystem = {pkgs, ...}: {
     formatter = pkgs.alejandra;
   };
 }

@@ -1,8 +1,7 @@
 {
   den,
   __findFile,
-      inputs,
-
+  inputs,
   ...
 }: {
   den.aspects.services.filebrowser = {
@@ -19,7 +18,7 @@
       url = "files.${config.networking.domain}";
       port = config.alloc.ports.blocks.filebrowser.start;
 
-      configFile = inputs.self+"/assets/config/filebrowserquantum/config.yaml";
+      configFile = inputs.self + "/assets/config/filebrowserquantum/config.yaml";
     in {
       alloc.ports.blocks.filebrowser = {};
 
