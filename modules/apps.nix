@@ -125,6 +125,7 @@
         <discord>
         <ghostty>
         <bitwarden-desktop>
+        <zen-browser>
       ];
     };
 
