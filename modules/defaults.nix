@@ -29,5 +29,13 @@
   # Formatter for nix flake check
   perSystem = {pkgs, ...}: {
     formatter = pkgs.alejandra;
+
+    devShells.default = pkgs.mkShell {
+      name = "config-dev";
+      packages = [
+        pkgs.jujutsu
+        pkgs.alejandra
+      ];
+    };
   };
 }
