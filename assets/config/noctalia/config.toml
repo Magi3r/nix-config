@@ -83,7 +83,7 @@ enabled = true
 members = ["cpu", "temp", "ram"]
 accordion = false
 accordion_direction = "end"
-fill = "surface_variant"
+fill = "surface_container"
 opacity = 1.0
 padding = 6.0
 
