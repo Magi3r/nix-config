@@ -109,6 +109,7 @@
           libreoffice
           zed-editor
           obsidian
+          signal-desktop
           # protonvpn-gui
           # qbittorrent
           # gimp
