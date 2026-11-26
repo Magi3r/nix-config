@@ -35,7 +35,7 @@
       '';
 
       virtualisation.oci-containers.containers.filebrowser = {
-        image = "gtstef/filebrowser:2.0.7-beta";
+        image = "gtstef/filebrowser:2.2.0-beta";
         autoStart = true;
         user = "1000:1000";
         ports = [
